@@ -1,0 +1,20 @@
+<!-- Passenger Details Section -->
+<section class="section passenger-details" *ngIf="passenger">
+  <h2>Passenger Details</h2>
+  <div class="passenger-card">
+    <div class="passenger-info">
+      <p><strong>First Name:</strong> {{ passenger?.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ passenger?.lastName }}</p>
+      <p><strong>Date of Birth:</strong> {{ passenger?.dateOfBirth}}</p>
+    </div>
+    <div class="passenger-info">
+      <p><strong>Email:</strong> {{ passenger?.email }}</p>
+      <p><strong>Phone Number:</strong> {{ passenger?.phoneNumber }}</p>
+      <p><strong>Address:</strong> {{ passenger?.address }}</p>
+    </div>
+  </div>
+</section>
+
+<div *ngIf="!passenger">
+  <p>No passenger data available.</p>
+</div>

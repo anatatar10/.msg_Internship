@@ -1,0 +1,210 @@
+/* Table container styling */
+.section.case-details {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Table styling */
+.scrollable-table {
+  overflow-x: auto;
+}
+
+.connecting-cases-table {
+  width: 100%;
+  border-collapse: separate; /* Allows for border-radius on the table */
+  border-spacing: 0; /* No spacing between cells */
+  margin-bottom: 20px;
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  overflow: hidden; /* Ensure rounded corners are visible */
+}
+
+.connecting-cases-table th,
+.connecting-cases-table td {
+  padding: 10px;
+  text-align: center; /* Center the text */
+  border-bottom: 1px solid #ddd;
+}
+
+.connecting-cases-table th {
+  background-color: #00334e; /* Dark header background */
+  color: white; /* White text color */
+  font-weight: bold;
+}
+
+.connecting-cases-table tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray for alternating rows */
+}
+
+.connecting-cases-table tr:hover {
+  background-color: #f0f0f0; /* Slightly darker gray on hover */
+}
+
+/* Styling for problematic rows */
+.connecting-cases-table tr.problematic-flight {
+  background-color: #ffe6e6; /* Light red background for problematic rows */
+}
+
+/* Icon styling */
+.connecting-cases-table .icon-warning {
+  color: #d93025; /* Red color for the warning icon */
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Remove border for the last row to round corners */
+.connecting-cases-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Button and icon styles */
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center;     /* Centers the buttons vertically */
+  gap: 10px;               /* Adds space between the buttons */
+}
+
+.edit-button,
+.bin-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF; /* Blue background color for edit */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.bin-button {
+  background-color: #f44336; /* Red background color for delete */
+}
+
+.bin-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.pencil-icon,
+.bin-top,
+.bin-bottom {
+  display: block;
+}
+
+.editBtn {
+  width: 55px;
+  height: 55px;
+  border-radius: 10px;
+  border: none;
+  background-color: #26c526;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.123);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.editBtn::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  background-color: #1caa1c;
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+  transition: all 0.3s;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.editBtn:hover::before {
+  transform: scale(1);
+}
+.editBtn:hover {
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.336);
+}
+
+.editBtn svg {
+  height: 17px;
+  fill: white;
+  z-index: 3;
+  transition: all 0.2s;
+  transform-origin: bottom;
+}
+.editBtn:hover svg {
+  transform: rotate(-15deg) translateX(5px);
+}
+.editBtn::after {
+  content: "";
+  width: 25px;
+  height: 1.5px;
+  position: absolute;
+  bottom: 19px;
+  left: -5px;
+  background-color: white;
+  border-radius: 2px;
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-out;
+}
+.editBtn:hover::after {
+  transform: scaleX(1);
+  left: 0px;
+  transform-origin: right;
+}
+
+.card-header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center; /* Center the text */
+}
+
+.card-header h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Adjust font size if needed */
+}

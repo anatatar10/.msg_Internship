@@ -1,0 +1,102 @@
+<p-toast></p-toast>
+<body>
+<form class="form-container" [formGroup]="userDetailsForm" (ngSubmit)="onSubmit()">
+  <h1>{{ isAdmin ? ('user-details.createColleague' | translate) : ('user-details.userDetails' | translate) }}</h1>
+
+  <div class="form-group">
+    <label for="firstName">{{ 'user-details.firstName' | translate }}:</label>
+    <input pInputText id="firstName"
+           class="input"
+           formControlName="firstName"
+           [placeholder]="'user-details.enterFirstName' | translate"
+           [required]="true">
+    <div *ngIf="firstName?.invalid && userDetailsForm.get('firstName')?.touched">
+      <small *ngIf="firstName?.errors?.['required']"
+             class="error-text">{{ 'user-details.firstNameRequired' | translate }}</small>
+      <small *ngIf="firstName?.errors?.['minlength']"
+             class="error-text">{{ 'user-details.firstNameMinLength' | translate:{minLength: MinLength} }}</small>
+      <small *ngIf="firstName?.errors?.['maxlength']"
+             class="error-text">{{ 'user-details.firstNameMaxLength' | translate:{maxLength: MaxLength} }}</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="lastName">{{ 'user-details.lastName' | translate }}:</label>
+    <input pInputText id="lastName"
+           class="input"
+           formControlName="lastName"
+           [placeholder]="'user-details.enterLastName' | translate"
+           [required]="true">
+    <div *ngIf="lastName?.invalid && userDetailsForm.get('lastName')?.touched">
+      <small *ngIf="lastName?.errors?.['required']"
+             class="error-text">{{ 'user-details.lastNameRequired' | translate }}</small>
+      <small *ngIf="lastName?.errors?.['minlength']"
+             class="error-text">{{ 'user-details.lastNameMinLength' | translate:{minLength: MinLength} }}</small>
+      <small *ngIf="lastName?.errors?.['maxlength']"
+             class="error-text">{{ 'user-details.lastNameMaxLength' | translate:{maxLength: MaxLength} }}</small>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email">{{ 'user-details.email' | translate }}:</label>
+    <input pInputText id="email"
+           class="input"
+           formControlName="email"
+           [placeholder]="'user-details.enterEmail' | translate"
+           [required]="true">
+    <div *ngIf="emailControl?.invalid && userDetailsForm.get('email')?.touched">
+      <small *ngIf="emailControl?.errors?.['required']"
+             class="error-text">{{ 'user-details.emailRequired' | translate }}</small>
+      <small *ngIf="emailControl?.errors?.['pattern']">{{ 'user-details.invalidEmail' | translate }}</small>
+    </div>
+  </div>
+
+  <div *ngIf="isAdmin" class="form-group">
+    <label for="password">{{ 'user-details.password' | translate }}:</label>
+    <input pInputText id="password"
+           type="text"
+           class="input"
+           formControlName="password"
+           [placeholder]="'user-details.enterPassword' | translate"
+           [required]="true">
+    <div *ngIf="password?.invalid && userDetailsForm.get('password')?.touched">
+      <small *ngIf="password?.errors?.['required']"
+             class="error-text">{{ 'user-details.passwordRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <!-- GDPR Consent -->
+  <div *ngIf="!isAdmin && !isColleague" class="form-group">
+    <div class="checkbox-container" style="display: flex; align-items: center;">
+      <p-checkbox id="gdprConsent" inputId="gdprConsent" formControlName="gdprConsent" [binary]="true"></p-checkbox>
+      <span style="margin-left: 8px;">
+        {{ 'user-details.gdprConsent' | translate }}
+        <a [href]="gdprFileUrl" target="_blank">{{ 'user-details.gdprLink' | translate }}</a>
+      </span>
+    </div>
+    <div *ngIf="gdprConsent?.invalid && userDetailsForm.get('gdprConsent')?.touched">
+      <small *ngIf="gdprConsent?.errors?.['required']">{{ 'user-details.gdprConsentRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <!-- Terms and Conditions -->
+  <div *ngIf="!isAdmin && !isColleague" class="form-group">
+    <div class="checkbox-container" style="display: flex; align-items: center;">
+      <p-checkbox id="termsAndConditions" inputId="termsAndConditions" formControlName="termsAndConditions"
+                  [binary]="true"></p-checkbox>
+      <span style="margin-left: 8px;">
+        {{ 'user-details.termsAndConditions' | translate }}
+        <a [href]="termsFileUrl" target="_blank">{{ 'user-details.termsLink' | translate }}</a>
+      </span>
+    </div>
+    <div *ngIf="termsAndConditions?.invalid && userDetailsForm.get('termsAndConditions')?.touched">
+      <small
+        *ngIf="termsAndConditions?.errors?.['required']">{{ 'user-details.termsAndConditionsRequired' | translate }}</small>
+    </div>
+  </div>
+
+  <button class="submit-button" pButton type="submit"
+          [label]="isAdmin ? ('user-details.createColleague' | translate) : (isColleague ? ('user-details.createCase' | translate) : ('user-details.submit' | translate))"
+          [disabled]="userDetailsForm.invalid"></button>
+</form>
+</body>

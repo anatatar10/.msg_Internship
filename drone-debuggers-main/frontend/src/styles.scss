@@ -1,0 +1,217 @@
+:root {
+  --primary: #1A3547;
+  --secondary: #A6EB55;
+  --background: #ffffff;
+  --accent: #472C1A;
+  --surface: #9A55EB;
+  --error: #FF0000;
+  --checkmark: #00FF00;
+  --text: #000000;
+}
+
+body {
+  background-color: var(--background);
+}
+
+#background-photo {
+  max-width: 100%;
+  opacity: 0.5;
+}
+
+.p-toast {
+  margin-top: 70px;
+}
+
+.p-autocomplete {
+  display: flex; /* Enable flexbox */
+  justify-content: center; /* Center horizontally */
+
+  .p-autocomplete-input {
+    min-width: 250px;
+    width: 100%;
+    text-align: center; /* Center the text */
+    font-family: Arial, sans-serif;
+    padding: 12px 12px 12px 15px; /* Adjust padding to make space for the icon */
+    border-radius: 12px;
+    border: 2px solid #e4e4e4;
+    outline: none;
+    transition: all 0.3s ease;
+    font-size: 14px;
+
+    &::placeholder {
+      color: #aaaaaa;
+      text-align: center; /* Ensure placeholder text is centered */
+    }
+
+    &:focus {
+      border-color: #8ebf42;
+      box-shadow: 0 0 8px 0 #8ebf42;
+    }
+
+    &:hover {
+      background-color: #f0f8ff;
+    }
+  }
+
+  .p-autocomplete-panel {
+    max-width: 450px;
+    width: 100%;
+    text-align: center; /* Center text in dropdown items */
+  }
+}
+
+.p-dropdown {
+  display: flex;
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  width: 100%; /* Ensure full width usage */
+
+  .p-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centers text and arrow */
+  }
+
+  .p-dropdown-panel {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    width: 100%; /* Ensure the panel uses full width */
+  }
+
+  .p-dropdown-label {
+    text-align: center; /* Center text within the dropdown */
+    width: 100%; /* Ensure the label takes full width to center text */
+    padding-left: 2rem; /* Reset padding to ensure proper centering */
+  }
+
+  .p-dropdown-item {
+    width: 100%;
+    text-align: center; /* Center individual items */
+    padding-right: 2rem;
+  }
+
+  .p-dropdown-items {
+    width: 100%;
+    text-align: center; /* Center all items */
+    padding-right: 2.5rem;
+  }
+
+  .p-dropdown-items-wrapper {
+    display: flex;
+    justify-content: center;
+    padding-right: 0; /* Ensure padding does not misalign text */
+  }
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  width: 100%; /* Full width of the parent container */
+
+  .p-dropdown {
+    max-width: 400px; /* Set max-width for the dropdown */
+    width: 100%; /* Ensure the dropdown takes full width of its container */
+  }
+}
+
+.p-autocomplete {
+  width: 100%;
+}
+
+.p-autocomplete-panel {
+  width: 100%;
+  max-width: 450px;
+}
+
+.p-autocomplete-items {
+  width: 100%;
+  padding-right: 1.5rem;
+}
+
+.p-autocomplete-item {
+  width: 100%;
+}
+
+.p-autocomplete {
+  .p-autocomplete-panel {
+    max-width: 250px; // Set max width for the dropdown panel
+    width: 100%; // Ensure the panel takes full width of its container
+  }
+}
+
+
+textarea {
+  width: 100%;
+}
+
+.p-fileupload-buttonbar,
+.p-fileupload-content {
+  display: flex;
+  justify-content: center; /* Center buttons and content */
+}
+
+.p-fileupload .p-fileupload-button {
+  background-color: #A6EB55;
+  color: #1A3547;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.p-fileupload .p-fileupload-button:hover {
+  background-color: #8ebf42;
+  color: #ffffff;
+}
+
+.p-fileupload .p-fileupload-choose,
+.p-fileupload .p-fileupload-upload,
+.p-fileupload .p-fileupload-cancel {
+  text-align: center; /* Center text in buttons */
+}
+
+.p-fileupload .p-fileupload-content .p-fileupload-preview {
+  margin: 10px 0;
+  color: #A6EB55;
+  text-align: center; /* Center text in preview */
+}
+
+.p-fileupload .p-fileupload-content .p-fileupload-preview .p-fileupload-preview-image {
+  max-width: 100%;
+  border-radius: 4px;
+}
+
+/* Green file upload buttons */
+.p-fileupload-buttonbar .p-button {
+  background-color: var(--primary) !important; /* Green background */
+  border-color: #4CAF50 !important;     /* Green border */
+  color: var(--secondary) !important;              /* White text */
+}
+
+
+
+.p-datatable-thead th{
+  background-color: var(--primary);
+  color:white;
+}
+
+.custom-table thead th:first-child {
+  border-top-left-radius: 10px; /* Adjust the radius as needed */
+}
+
+.custom-table thead th:last-child {
+  border-top-right-radius: 10px; /* Adjust the radius as needed */
+}
+
+.custom-table thead {
+  background-color: #004080; /* Example blue color */
+  color: white;
+}
+
+.custom-table th {
+  text-align: center;
+  padding: 10px;
+}
+

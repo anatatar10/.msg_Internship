@@ -1,0 +1,151 @@
+<body>
+<div class="container">
+  <header>
+    <h1>{{ "case-details.CASE_DETAILS" | translate }}{{ systemCaseId }}</h1>
+  </header>
+
+  <section class="section reservation-details" *ngIf="reservation$ | async as reservation">
+    <h2>{{ "case-details.RESERVATION_DETAILS" | translate }}</h2>
+    <div class="reservation-card">
+      <div class="reservation-info">
+        <p><strong>{{ "case-details.RESERVATION_NUMBER" | translate }}</strong> {{ reservation.reservationNumber }}</p>
+        <p>
+          <strong>{{ "case-details.DEPARTING_AIRPORT" | translate }}</strong> {{ reservation.departingAirport?.airportName }}
+          ({{ reservation.departingAirport?.airportCode }})</p>
+        <p>
+          <strong>{{ "case-details.DESTINATION_AIRPORT" | translate }}</strong> {{ reservation.destinationAirport?.airportName }}
+          ({{ reservation.destinationAirport?.airportCode }})</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Flight Details Section -->
+  <section class="section flight-details" *ngIf="flights$ | async as flights">
+    <h2>{{ "case-details.FLIGHT_DETAILS" | translate }}</h2>
+
+    <div class="scrollable-table">
+      <table class="connecting-flights-table">
+        <thead>
+        <tr>
+          <th>{{ "case-details.FLIGHT_NUMBER" | translate }}</th>
+          <th>{{ "case-details.AIRLINE" | translate }}</th>
+          <th>{{ "case-details.DEPARTING_AIRPORT_1" | translate }}</th>
+          <th>{{ "case-details.DESTINATION_AIRPORT_1" | translate }}</th>
+          <th>{{ "case-details.DEPARTURE_DATE" | translate }}</th>
+          <th>{{ "case-details.ARRIVAL_DATE" | translate }}</th>
+          <th>{{ "case-details.PROBLEMATIC_FLIGHT" | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let flight of flights" [ngClass]="{'problematic-flight': flight.problematic}">
+          <td>{{ flight.flightNumber }}</td>
+          <td>{{ flight.airline }}</td>
+          <td>{{ flight.arrivalAirport?.airportName }} ({{ flight.arrivalAirport?.airportCode }})</td>
+          <td>{{ flight.departureAirport?.airportName }} ({{ flight.departureAirport?.airportCode }})</td>
+          <td>{{ flight.departureDate | date: 'dd-MM-yyyy' }}</td>
+          <td>{{ flight.arrivalDate | date: 'dd-MM-yyyy' }}</td>
+          <td>
+            <span *ngIf="flight.problematic" class="icon-warning" title="Problematic Flight">&#9888;</span>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </section>
+
+  <!-- Passenger Details Section -->
+  <section class="section passenger-details" *ngIf="passenger$ | async as passenger">
+    <h2>{{ "case-details.PASSENGER_DETAILS" | translate }}</h2>
+    <div class="passenger-card">
+      <div class="passenger-info">
+        <p><strong>{{ "case-details.NAME" | translate }}:</strong> {{ passenger.firstName }}</p>
+        <p><strong>{{ "case-details.FAMILY_NAME" | translate }}:</strong> {{ passenger.lastName }}</p>
+        <p><strong>{{ "case-details.DATE_OF_BIRTH" | translate }}
+          :</strong> {{ passenger.dateOfBirth | date: 'dd-MM-yyyy' }}</p>
+      </div>
+      <div class="passenger-info">
+        <p><strong>{{ "case-details.EMAIL" | translate }}:</strong> {{ passenger.email }}</p>
+        <p><strong>{{ "case-details.PHONE" | translate }}:</strong> {{ passenger.phoneNumber }}</p>
+        <p><strong>{{ "case-details.ADDRESS" | translate }}:</strong> {{ passenger.address }}, Postal
+          Code: {{ passenger.postalCode }}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attached Documents Section -->
+  <section class="section attached-documents" *ngIf="attachedDocuments$ | async as documents">
+    <h2>{{ "case-details.ATTACHED_DOCUMENTS" | translate }}</h2>
+    <div class="card flex justify-content-center">
+      <p-toast></p-toast>
+      <p-fileUpload
+        name="uploadedFiles[]"
+        [customUpload]="true"
+        accept="application/pdf,image/jpeg"
+        [maxFileSize]="5242880"
+        [multiple]="true"
+        (uploadHandler)="onUpload()"
+        (onSelect)="onFileSelect($event, 'Other')"
+        [chooseLabel]="'case-details.CHOOSE' | translate"
+        [uploadLabel]="'case-details.UPLOAD' | translate"
+        [cancelLabel]="'case-details.CANCEL' | translate">
+        <ng-template pTemplate="content"></ng-template>
+      </p-fileUpload>
+    </div>
+    <ul class="document-list">
+      <li *ngFor="let document of documents" class="document-item">
+        <div class="document-info">
+          <strong>{{ document.fileName }} </strong> -
+          Uploaded on {{ document.uploadDate | date: 'dd-MM-yyyy hh:mm a' }} -
+          <span [ngSwitch]="document.documentType">
+        <span *ngSwitchCase="'Boarding Pass'">Boarding Pass</span>
+        <span *ngSwitchCase="'IdPassport'">ID/Passport</span>
+        <span *ngSwitchCase="'Id'">ID/Passport</span>
+        <span *ngSwitchCase="'Passport'">ID/Passport</span>
+        <span *ngSwitchDefault>{{ document.documentType }}</span> <!-- Fallback for other types -->
+      </span>
+        </div>
+        <button class="download-btn" (click)="downloadDocument(document)">
+          <svg class="saveicon" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" fill="none"
+               xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+              stroke-linejoin="round" stroke-linecap="round"></path>
+          </svg>
+          <span>{{ "case-details.DOWNLOAD_PDF" | translate }}</span>
+        </button>
+      </li>
+    </ul>
+  </section>
+  <section class="section comments" *ngIf="comments$ | async as comments">
+    <h2>{{ "case-details.COMMENTS" | translate }}</h2>
+    <div class="message-container">
+        <textarea
+          [(ngModel)]="message"
+          rows="4"
+          cols="50"
+          maxlength="200"
+          placeholder="{{ 'case-details.MESSAGE' | translate }}"
+          (input)="updateCharacterCount()">
+        </textarea>
+      <div class="char-counter">
+        {{ message.length }} / 200
+      </div>
+      <button (click)="sendMessage()" class="send-button">
+        <i class="fa fa-paper-plane"></i> {{ 'case-details.ADD_COMMENT' | translate }}
+      </button>
+    </div>
+    <ul class="comment-list">
+      <li *ngFor="let comment of comments">
+        <div class="comment-bubble">
+          <p><strong>{{ comment.userEmail }} ({{ comment.userRole || 'Unknown' }})</strong>
+            - {{ comment.timestamp | date: 'dd-MM-yyyy hh:mm a' }}</p>
+          <p>{{ comment.comment }}</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</div>
+
+</body>

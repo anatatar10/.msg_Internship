@@ -1,0 +1,10 @@
+<section class="section comment" *ngIf="comment">
+  <div class="comment-bubble">
+    <p><strong>{{ comment.userEmail }} ({{ comment.userRole || 'unknown' }})</strong> - {{ comment.timestamp | date: 'yyyy-MM-dd hh:mm a' }}</p>
+    <p>{{ comment.comment }}</p>
+  </div>
+</section>
+
+<div *ngIf="!comment">
+  <p>No comment available.</p>
+</div>

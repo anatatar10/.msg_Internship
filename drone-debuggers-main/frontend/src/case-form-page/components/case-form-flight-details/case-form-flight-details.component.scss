@@ -1,0 +1,171 @@
+html, body {
+  height: 100%; /* Ensure the body and html take up the full height */
+  margin: 0; /* Remove any default margin */
+  background-color: white; /* Set your desired background color */
+  font-family: Arial, serif; /* Optional: Set a default font for the page */
+  display: flex; /* Use flexbox to make the body a flex container */
+  flex-direction: column; /* Arrange children in a column */
+}
+
+small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold !important; /* Make the error messages bold */
+}
+
+.form-container {
+  min-width: 300px;
+  width: 50%;
+  margin: 20px auto; /* Add margin-top to create space from the top */
+  padding: 20px;
+  background-color: white;
+  color: var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold !important; /* Make labels bold */
+}
+
+button:hover {
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+button.selected {
+  background-color: var(--secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 10px;
+}
+
+.input:focus {
+  border-color: #8ebf42;
+  box-shadow: 0 0 8px 0 #8ebf42;
+}
+
+.input::placeholder {
+  color: #aaaaaa;
+}
+
+.input:hover {
+  background-color: #f0f8ff;
+}
+
+i {
+  position: absolute;
+  right: 15px;
+  color: #aaaaaa;
+}
+
+/* Adjust icon color on focus */
+.input:focus + i {
+  color: #8ebf42;
+}
+
+/* Style for the row containing "From Airport" and "To Airport" */
+.flight-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Style for the arrow between the two inputs */
+.arrow {
+  font-size: 30px;
+  margin: 0 15px; /* Adjust spacing as needed */
+}
+
+.form-field {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.compensation-box {
+  max-width: 900px;
+  margin: 50px auto 10px; /* Adjust the margin-bottom to control space from the form */
+  padding: 10px;
+  color: var(--primary);
+  border-radius: 8px;
+  font-size: 25px;
+  font-weight: bold;
+  text-align: center; /* Center text if desired */
+  background-color: white;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+/* Center the button container */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Ensure the container takes full width */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+/* Base style for the button */
+.submit-button {
+  padding: 12px 19px;
+  border: none;
+  color: white; /* Default text color */
+  cursor: pointer;
+  background-color: #8ebf42; /* Default background color */
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+/* Hover effect for enabled button */
+.submit-button:hover {
+  background-color: #76a933; /* Slightly darker shade on hover */
+}
+
+/* Style for the disabled state */
+.submit-button:disabled {
+  background-color: grey; /* Grey background when disabled */
+  cursor: not-allowed; /* Show not-allowed cursor when disabled */
+  color: #cccccc; /* Lighter grey text color */
+  box-shadow: none; /* Remove the box shadow */
+}

@@ -1,0 +1,64 @@
+.section.pdf-details {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-list-container {
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.blue-header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center; /* Center the text */
+}
+
+.section.pdf-details {
+  padding: 20px;
+}
+
+.scrollable-table {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+}
+
+.pdf-list-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.pdf-list-table th, .pdf-list-table td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.pdf-list-table th {
+  background-color: var(--primary);
+  color: white;
+}
+
+.pdf-list-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.card-header h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Adjust font size if needed */
+}
+

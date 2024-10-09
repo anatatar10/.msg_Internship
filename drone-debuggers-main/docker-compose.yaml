@@ -1,0 +1,38 @@
+services:
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:8080"
+    networks:
+      - default
+    depends_on:
+      - backend
+  backend:
+    build: ./backend
+    ports:
+      - "8081:8081"
+    networks:
+      - default
+    environment:
+      - AIRPORT_FETCH_URL=https://airportgap.com/api/airports
+    depends_on:
+      - database
+    restart: unless-stopped
+  database:
+    image: mariadb:lts
+    volumes:
+      - ./db/data:/var/lib/mysql
+      - ./db/init/init.sql:/docker-entrypoint-initdb.d/init.sql
+    environment:
+      - MARIADB_ROOT_PASSWORD=my-secret-pw
+    ports:
+      - 3306:3306
+    networks:
+      default:
+networks:
+  default:
+volumes:
+  db-data:
+    name: data
+    external: true
+

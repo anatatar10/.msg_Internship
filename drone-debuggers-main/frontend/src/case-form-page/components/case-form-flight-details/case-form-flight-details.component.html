@@ -1,0 +1,25 @@
+<body>
+<div class="compensation-box">
+  <p>{{ 'flight-info.compensation' | translate }} {{ possibleCompensation }}€</p>
+</div>
+<div class="form-container">
+  <h1>{{ 'flight-info.title' | translate }}</h1>
+  <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="flights">
+      <div *ngFor="let flight of flights.controls; let i = index" [formGroupName]="i">
+        <app-flight-info [flightFormGroup]="getFlightFormGroup(i)">
+        </app-flight-info>
+      </div>
+      <small *ngIf="flights?.errors?.['invalidFlightSequence']">
+        <span>{{ 'flight-info.invalidFlightSequence' | translate }}</span>
+      </small>
+      <small *ngIf="flights?.errors?.['duplicateFlightNumbers']">
+        <span>{{ 'flight-info.duplicateFlightNumbers' | translate }}</span>
+      </small>
+    </div>
+    <div class="button-container">
+      <button pButton class="submit-button" type="submit" label="{{ 'flight-info.submit' | translate }}" [disabled]="flightForm.invalid"></button>
+    </div>
+  </form>
+</div>
+</body>

@@ -1,0 +1,15 @@
+<div class="problem-flight" [class.selected]="selected" (click)="onSelect()">
+  <div class="flight-row">
+    <div class="form-field">
+      <div class="airport-info">
+        <div class="airport-code" [title]="flight.departureAirport | airportDisplay">
+          {{ getAirportCode(flight.departureAirport) }}
+        </div>
+        <span class="arrow">→</span>
+        <div class="airport-code" [title]="flight.arrivalAirport | airportDisplay">
+          {{ getAirportCode(flight.arrivalAirport) }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

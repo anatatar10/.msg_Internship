@@ -1,0 +1,20 @@
+<body>
+<div class="form-container">
+  <h1>{{ 'problem-flight-details.selectProblemFlight' | translate }}</h1>
+  <form [formGroup]="flightForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <div *ngFor="let flight of flights; let i = index">
+        <app-problem-flight-info
+          [flight]="flight"
+          [selected]="i === selectedFlightId"
+          (selectFlight)="onSelectFlight(i)">
+        </app-problem-flight-info>
+      </div >
+      <div  class="button-container" >
+      <button class="submit-button" pButton pRipple type="submit" [disabled]="flightForm.invalid"
+              label="{{ 'problem-flight-details.submit' | translate }}"></button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>

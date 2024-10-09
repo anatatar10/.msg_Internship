@@ -1,0 +1,97 @@
+<div [formGroup]="flightFormGroup">
+  <div class="flight-row">
+    <div class="form-field">
+      <label>{{ 'flight-info.fromAirport' | translate }}</label>
+      <input pInputText [value]="departureAirport?.value | airportDisplay" readonly class="input">
+      <small *ngIf="departureAirport?.invalid &&
+                      (departureAirport?.dirty || flightFormGroup.get('fromAirport')?.touched)">
+        <span *ngIf="departureAirport?.errors?.['required']">
+          {{ 'flight-info.fromAirportRequired' | translate }}
+        </span>
+      </small>
+    </div>
+    <div class="arrow">
+      &#8594;
+    </div>
+    <div class="form-field">
+      <label>{{ 'flight-info.toAirport' | translate }}</label>
+      <input pInputText [value]="arrivalAirport?.value | airportDisplay" readonly="readonly" class="input">
+      <small *ngIf="arrivalAirport?.invalid &&
+                      (arrivalAirport?.dirty || flightFormGroup.get('toAirport')?.touched)">
+        <span *ngIf="arrivalAirport?.errors?.['required']">
+          {{ 'flight-info.toAirportRequired' | translate }}
+        </span>
+      </small>
+    </div>
+  </div>
+  <div class="form-field">
+    <label>{{ 'flight-info.flightAirline' | translate }}</label>
+    <input pInputText formControlName="flightAirline" class="input">
+    <small *ngIf="airline?.invalid &&
+                    (airline?.dirty || flightFormGroup.get('flightAirline')?.touched)">
+      <span *ngIf="airline?.errors?.['required']">
+        {{ 'flight-info.flightAirlineRequired' | translate }}
+      </span>
+      <span *ngIf="airline?.errors?.['minlength']">
+        {{ 'flight-info.flightAirlineMinLength' | translate:{minLength: MinLength} }}
+      </span>
+    </small>
+  </div>
+  <div class="form-field">
+    <label>{{ 'flight-info.flightNumber' | translate }}</label>
+    <input pInputText formControlName="flightNumber" class="input">
+    <small *ngIf="flightNumber?.invalid &&
+                    (flightNumber?.dirty || flightFormGroup.get('flightNumber')?.touched)">
+      <span *ngIf="flightNumber?.errors?.['required']">
+        {{ 'flight-info.flightNumberRequired' | translate }}
+      </span>
+      <span *ngIf="flightNumber?.errors?.['pattern']">
+        {{ 'flight-info.flightNumberPattern' | translate }}
+      </span>
+    </small>
+  </div>
+  <div class="form-field time">
+    <label>{{ 'flight-info.departureTime' | translate }}</label>
+    <app-input
+      [type]="'date'"
+      id="departureTime"
+      formControlName="departureTime"
+      [required]="true"
+      class="input"
+    ></app-input>
+    <small *ngIf="departureTime?.invalid &&
+                    (departureTime?.dirty || flightFormGroup.get('departureTime')?.touched)">
+      <span *ngIf="departureTime?.errors?.['required']">
+        {{ 'flight-info.departureTimeRequired' | translate }}
+      </span>
+      <span *ngIf="departureTime?.errors?.['futureDate']">
+        {{ 'flight-info.departureTimeFuture' | translate }}
+      </span>
+    </small>
+  </div>
+  <div class="form-field time">
+    <label>{{ 'flight-info.arrivalTime' | translate }}</label>
+    <app-input
+      [type]="'date'"
+      id="arrivalTime"
+      formControlName="arrivalTime"
+      [required]="true"
+      class="input"
+    ></app-input>
+    <small *ngIf="arrivalTime?.invalid &&
+                    (arrivalTime?.dirty || flightFormGroup.get('arrivalTime')?.touched)">
+      <span *ngIf="arrivalTime?.errors?.['required']">
+        {{ 'flight-info.arrivalTimeRequired' | translate }}
+      </span>
+      <span *ngIf="arrivalTime?.errors?.['futureDate']">
+        {{ 'flight-info.arrivalTimeFuture' | translate }}
+      </span>
+    </small>
+  </div>
+  <div *ngIf="flightFormGroup.errors?.['invalidTimeRange']">
+    <small>
+      {{ 'flight-info.invalidTimeRange' | translate }}
+    </small>
+  </div>
+  <hr/>
+</div>

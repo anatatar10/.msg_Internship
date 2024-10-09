@@ -1,0 +1,352 @@
+{
+  "navbar": {
+    "home": "Home",
+    "registerCase": "Register Case",
+    "login": "Login",
+    "logout": "Log out",
+    "users": "Users",
+    "cases": "Cases",
+    "pdfs": "See PDFs",
+    "seeAllCases": "See All Cases",
+    "seePastCases": "See Your Cases"
+  },
+  "caseList": {
+    "ID": "ID",
+    "CASE_DATE": "Case Date",
+    "FLIGHT_NUMBER": "Flight Number",
+    "PASSENGER_NAME": "Passenger Name",
+    "STATUS": "Status",
+    "COLLEAGUE_ASSIGNED": "Colleague Assigned",
+    "ELIGIBILITY": "Eligibility",
+    "eligible": "Eligible",
+    "notEligible": "Not Eligible",
+    "selectColleague": "Select a colleague",
+    "ACTIVE_CASES":"Active Cases",
+    "PAST_CASES": "Past Cases",
+    "ELIGIBILITY_CONFIRMATION": "Are you sure you want to mark this case as {{status}}?",
+    "CONFIRMATION": "Confirmation",
+    "ELIGIBILITY_CANCELLED": "Cancelled",
+    "CANCEL": "The operation was cancelled",
+    "TOAST_ELIGIBILITY_CANCELLED": "Case marking was cancelled.",
+    "TOAST_ELIGIBILITY_SUCCESSFUL": "Case marked was marked successfully."
+  },
+
+  "loginForm": {
+    "ENTER_EMAIL": "Enter email",
+    "ENTER_PASSWORD": "Enter password",
+    "LOGIN": "Login",
+    "SUBMIT": "Submit",
+    "REQUIRED_EMAIL_WARNING": "Email is required.",
+    "INVALID_EMAIL_WARNING": "Invalid email format."
+  },
+  "pdfDownload": {
+    "button": "Download contract"
+  },
+
+  "userListDTO": {
+    "TITLE": "User list",
+    "NAME": "Full name",
+    "EMAIL": "Email",
+    "ROLE": "Role",
+    "NO_ASSIGNED_CASES": "Number of assigned cases",
+    "ACTION": "Action",
+    "CREATE_NEW_COLLEAGUE": "New colleague",
+    "DELETE_CONFIRMATION": "Are you sure you want to delete the user?",
+    "CONFIRMATION": "Confirmation",
+    "TOAST_DELETE_SUCCESSFUL": "User deleted successfully.",
+    "TOAST_DELETE_UNSUCCESSFUL": "User deletion failed.",
+    "TOAST_DELETE_CANCELLED": "User deletion cancelled.",
+    "TOAST_DELETE_ERROR": "An error occurred while deleting the user.",
+    "YES": "Yes",
+    "NO": "No",
+    "CANCEL": "Cancelled"
+
+  },
+
+  "caseListForAdmin": {
+    "TITLE": "Case list",
+    "CASE_ID": "Case ID",
+    "FLIGHT_NUMBER": "Flight Number",
+    "STATUS": "Case status",
+    "ACTION": "Action",
+    "DELETE_CONFIRMATION": "Are you sure you want to delete the case?",
+    "CONFIRMATION": "Confirmation",
+    "TOAST_DELETE_SUCCESSFUL": "Case deleted successfully.",
+    "TOAST_DELETE_UNSUCCESSFUL": "Case deletion failed.",
+    "TOAST_DELETE_CANCELLED": "Case deletion cancelled.",
+    "TOAST_DELETE_ERROR": "An error occurred while deleting the case."
+
+  },
+
+  "errors": {
+    "E009": "Case not found",
+    "E008": "Account is locked.",
+    "E007": "Case is invalid. :( But give it a shot with another case!",
+    "E006": "Failed to parse distance response.",
+    "E005": "Failed to calculate distance.",
+    "E004": "Authentication failed, username or password wrong.",
+    "E003": "The given input is not a valid email address!",
+    "E002": "Email is already in use!",
+    "E001": "Role does not exist in the database.",
+    "error": "Error",
+    "base": "An unexpected error occurred"
+  },
+  "passenger-form": {
+    "passengerDetails": "Passenger Details",
+    "enterDateOfBirth": "Enter Date of Birth",
+    "dateOfBirthRequired": "Date of Birth is required.",
+    "dateOfBirthFuture": "Date of Birth cannot be in the future.",
+    "enterPhone": "Enter Phone Number",
+    "phoneRequired": "Phone number is required.",
+    "phonePattern": "Invalid phone number format.",
+    "enterAddress": "Enter Address",
+    "addressRequired": "Address is required.",
+    "addressMinLength": "Address must be at least {{ minLength }} characters long.",
+    "addressMaxLength": "Address cannot exceed {{ maxLength }} characters.",
+    "enterPostalCode": "Enter Postal Code",
+    "postalCodeRequired": "Postal code is required.",
+    "postalCodePattern": "Invalid postal code format.",
+    "chooseBoardingPass": "Choose Boarding Pass",
+    "uploadBoardingPass": "Upload Boarding Pass",
+    "cancel": "Cancel",
+    "boardingPassRequired": "Boarding pass is required.",
+    "boardingPassInvalidType": "Invalid file type. Only PDF or image files are allowed.",
+    "boardingPassFileTooLarge": "File size exceeds the maximum allowed size of 5 MB.",
+    "chooseIdPassport": "Choose ID/Passport",
+    "uploadIdPassport": "Upload ID/Passport",
+    "idPassportRequired": "ID/Passport is required.",
+    "idPassportInvalidType": "Invalid file type. Only PDF or image files are allowed.",
+    "idPassportFileTooLarge": "File size exceeds the maximum allowed size of 5 MB.",
+    "caseCreatedSuccessfully": "Case created successfully",
+    "success": "Success",
+    "gdprConsent": "I agree to the GDPR policy",
+    "gdprLink": "Read our GDPR policy",
+    "gdprConsentRequired": "GDPR consent is required",
+    "termsAndConditions": "I agree to the Terms and Conditions",
+    "termsLink": "Read our Terms and Conditions",
+    "termsAndConditionsRequired": "Agreement to Terms and Conditions is required",
+    "submit": "Submit"
+  },
+  "reservation-form": {
+    "reservationDetails": "Reservation Details",
+    "enterReservationNumber": "Enter reservation number",
+    "reservationNumberRequired": "Reservation number is required.",
+    "enterDepartingAirport": "Enter the airport of departure",
+    "enterDepartingAirport_1": "Search departing airport...",
+    "departingAirportRequired": "The departure airport is required.",
+    "enterArrivingAirport": "Enter the airport of arrival",
+    "enterArrivingAirport_1": "Search arrival airport...",
+    "arrivingAirportRequired": "Arrival airport is required.",
+    "enterStop": "Enter Layover",
+    "submit": "Next",
+    "remove-layover": "Remove layover",
+    "add-layover": "+ Add layover",
+    "duplicateAirports": "Cannot have duplicate airports.",
+    "reservationPatternInvalid": "Invalid reservation number format.",
+    "invalidArrivingAirport": "Invalid arrival airport.",
+    "invalidDepartingAirport": "Invalid departure airport.",
+    "invalidStopAirport": "Invalid layover airport.",
+    "invalidFlightSequence": "Invalid flight sequence."
+  },
+  "flight-info": {
+    "fromAirport": "From Airport:",
+    "toAirport": "To Airport:",
+    "flightNumber": "Flight Number:",
+    "departureTime": "Departure Date:",
+    "arrivalTime": "Arrival Dime:",
+    "fromAirportRequired": "From airport is required.",
+    "toAirportRequired": "To airport is required.",
+    "flightNumberRequired": "Flight number is required.",
+    "flightNumberPattern": "Invalid flight number format.",
+    "departureTimeRequired": "Departure date is required.",
+    "departureTimeFuture": "Departure date cannot be in the future.",
+    "arrivalTimeRequired": "Arrival date is required.",
+    "arrivalTimeFuture": "Arrival date cannot be in the future.",
+    "invalidTimeRange": "Departure date must be before arrival date.",
+    "reportProblem": "Problem happened with this flight",
+    "submit": "Next",
+    "invalidFlightSequence": "Invalid flight sequence.",
+    "title": "Flight Details",
+    "flightAirline": "Airline:",
+    "flightAirlineRequired": "Airline is required.",
+    "compensation": "You might be entitled to a compensation of",
+    "flightAirlineMinLength": "Airline must be at least {{ minLength }} characters long.",
+    "duplicateFlightNumbers": "Each flight number must be unique."
+  },
+  "disruption-info": {
+    "title": "Disruption Information",
+    "disruptionTypeLabel": "What type of problem did you encounter?",
+    "selectOption": "Select an option",
+    "disruptionTypeRequired": "Please select a disruption type.",
+    "cancellationInformedLabel": "How many days before cancellation has the airline informed?",
+    "cancellationInfoRequired": "Cancellation information is required.",
+    "delayLabel": "How late arrived to final destination?",
+    "delayInfoRequired": "Delay information is required.",
+    "voluntarilyLabel": "Did you give up your seat voluntarily?",
+    "voluntarilyRequired": "Voluntarily information is required.",
+    "reasonLabel": "Reason behind denial of boarding",
+    "reasonRequired": "Reason for denial is required if you did not give up your seat voluntarily.",
+    "mentionedMotiveLabel": "Did the airline mention disruption motive?",
+    "mentionedMotiveRequired": "Please specify if the airline mentioned the motive.",
+    "motiveLabel": "What was the motive communicated by the airline?",
+    "motiveRequired": "Motive is required if it was mentioned by the airline.",
+    "additionalInfoLabel": "Additional Information",
+    "additionalInfoPlaceholder": "Describe what happened",
+    "additionalInfoTooLong": "Additional information too long.",
+    "notEligible": "Sorry, but your flight is not eligible for compensation. However you can check the eligibility of another flight!",
+    "eligible": "Congratulations! Your flight is possibly eligible for a compensation of up to ",
+    "checkAnotherFlight": "Check Another Flight",
+    "submit": "Next",
+    "disruptionTypes": {
+      "cancellation": "Cancellation",
+      "delay": "Delay",
+      "deniedBoarding": "Denied Boarding"
+    },
+    "cancellationOptions": {
+      "moreThan14Days": "More than 14 days",
+      "lessThan14Days": "Less than 14 days",
+      "onFlightDay": "On flight day"
+    },
+    "delayOptions": {
+      "lessThan3Hours": "More than 3h",
+      "moreThan3Hours": "Less than 3h",
+      "neverArrived": "Never Arrived"
+    },
+    "responseOptions": {
+      "yes": "Yes",
+      "no": "No",
+      "iDon'tKnow": "I don't know"
+    },
+    "denialReasons": {
+      "flightOverbooked": "Flight overbooked",
+      "aggressiveBehavior": "Aggressive behavior with staff",
+      "intoxication": "Intoxication",
+      "unspecifiedReason": "Unspecified reason"
+    },
+    "disruptionMotiveOptions": {
+      "technicalProblem": "Technical problem",
+      "meteorologicalConditions": "Meteorological conditions",
+      "strike": "Strike",
+      "airportProblems": "Problems with airport",
+      "crewProblems": "Crew problems",
+      "otherMotives": "Other motives"
+    }
+  },
+  "user-details": {
+    "userDetails": "User Details",
+    "firstName": "First Name",
+    "lastName": "Last Name",
+    "email": "Email",
+    "enterFirstName": "Enter your first name",
+    "enterLastName": "Enter your last name",
+    "enterEmail": "Enter your email",
+    "firstNameRequired": "First name is required.",
+    "firstNameMinLength": "First name must be at least {{ minLength }} characters long.",
+    "firstNameMaxLength": "First name must be at most {{ maxLength }} characters long.",
+    "lastNameRequired": "Last name is required.",
+    "lastNameMinLength": "Last name must be at least {{ minLength }} characters long.",
+    "lastNameMaxLength": "Last name must be at most {{ maxLength }} characters long.",
+    "emailRequired": "Email is required.",
+    "invalidEmail": "Invalid email format.",
+    "gdprConsent": "I agree to the GDPR policy",
+    "gdprLink": "Read our GDPR policy",
+    "gdprConsentRequired": "GDPR consent is required",
+    "termsAndConditions": "I agree to the Terms and Conditions",
+    "termsLink": "Read our Terms and Conditions",
+    "termsAndConditionsRequired": "Agreement to Terms and Conditions is required",
+    "submit": "Next",
+    "password": "Password",
+    "enterPassword": "Enter your password",
+    "createColleague": "Create Colleague",
+    "createCase": "Submit",
+    "passwordRequired": "Password is necessary",
+    "userCreatedSuccessfully": "User created successfully",
+    "caseCreatedSuccessfully": "Case created successfully",
+    "success": "Success"
+
+  },
+  "problem-flight-details": {
+    "selectProblemFlight": "Select the Problem Flight",
+    "submit": "Next"
+  },
+  "progress-bar": {
+    "reservationInformation": "Reservation Information",
+    "flightInformation": "Flight Information",
+    "disruptionInformation": "Disruption Information",
+    "userInformation": "User Information",
+    "passengerInformation": "Passenger Information"
+  },
+  "case-details": {
+    "CASE_DETAILS":         "Case Details for id: ",
+    "RESERVATION_DETAILS":  "Reservation Details",
+    "FLIGHT_DETAILS":       "Flight Details",
+    "PASSENGER_DETAILS":    "Passenger Details",
+    "ATTACHED_DOCUMENTS":   "Attached Documents",
+    "COMMENTS":             "Comments",
+    "DOWNLOAD_PDF":         "Download document",
+    "UPLOAD":               "Upload document",
+    "RESERVATION_NUMBER":   "Reservation Number: ",
+    "DEPARTING_AIRPORT":    "Departing Airport: ",
+    "DESTINATION_AIRPORT":  "Destination Airport: ",
+    "DEPARTING_AIRPORT_1":  "Departing Airport",
+    "DESTINATION_AIRPORT_1":"Destination Airport",
+    "FLIGHT_NUMBER":        "Flight Number",
+    "AIRLINE":              "Airline",
+    "DEPARTURE_DATE":       "Departure Date",
+    "ARRIVAL_DATE":         "Arrival Date",
+    "PROBLEMATIC_FLIGHT":   "Problematic Flight",
+    "NAME":                 "First name",
+    "FAMILY_NAME":          "Family Name",
+    "DATE_OF_BIRTH":        "Date of Birth",
+    "EMAIL":                "Email",
+    "PHONE":                "Phone",
+    "ADDRESS":              "Address",
+    "CHOOSE":               "Choose",
+    "UPLOAD:":              "Upload",
+    "CANCEL":               "Cancel",
+    "MESSAGE":              "Leave a message here...",
+    "MESSAGE_SENT_SUCCESS": "Your message was sent successfully.",
+    "MESSAGE_SENT_FAILURE": "There was an error sending your message. Please try again.",
+    "MESSAGE_SUCCESS_TITLE": "Message Sent",
+    "MESSAGE_FAILURE_TITLE": "Message Failed",
+    "ADD_COMMENT":          "Add Comment"
+  },
+  "footer": {
+    "footer": "© 2024 Air Assist Europe. All rights reserved."
+  },
+  "landingPage": {
+    "motivation": "If you had a problematic flight, you might be eligible for compensation of up to €600!",
+    "or": "or...",
+    "createCaseButton": "Check a problematic flight.",
+    "loginButton": "Log in to check the status on your cases"
+  },
+
+
+  "errorPage": {
+    "guessWhat": "Guess what!!!",
+    "pageReached": "You reached a page you shouldn't have reached!!!",
+    "ntt": "Now go back to where you were"
+  },
+
+  "passwordChangeForm": {
+    "CHANGE_PASSWORD": "Password Change",
+    "REQUIRED_PASSWORD_WARNING": "New Password is required",
+    "ENTER_NEW_PASSWORD": "Enter new password",
+    "ENTER_PASSWORD_CHECK": "Enter new password again",
+    "PASSWORDS_DO_NOT_MATCH": "Passwords are not the same",
+    "SUBMIT": "Submit",
+    "MIN_LENGTH_PASSWORD_WARNING": "Password has to have minimum 6 characters"
+  },
+
+  "pdf-list": {
+    "TITLE": "PDF List",
+    "ID": "ID",
+    "DOCUMENT_NAME": "Document Name",
+    "PASSENGER_NAME": "Passenger Name",
+    "CASE_ID": "Case ID",
+    "TIMESTAMP": "Timestamp"
+  }
+
+
+}
+

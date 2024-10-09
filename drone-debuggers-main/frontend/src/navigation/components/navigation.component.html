@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg">
+  <a class="navbar-brand">
+    <img src="assets/logo/Air-Assist-logo-small.png" alt="Logo" class="d-inline-block align-top">
+  </a>
+  <button class="navbar-toggler" type="button" (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-controls="navbarNavDropdown" aria-expanded="!isNavbarCollapsed" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse"  [ngClass]="{'show': !isNavbarCollapsed}" id="navbarNavDropdown">
+
+    <ul class="navbar-nav ml-auto">
+      <li *ngIf="loggedInRole === RolesEnum.Nobody || loggedInRole === RolesEnum.Passenger || loggedInRole === RolesEnum.Colleague">
+        <button class="register-case-button" (click)="onNavigate()" style="float: right" pButton type="submit"
+                [label]="'navbar.registerCase' | translate"></button>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.SysAdmin">
+        <div class="nav-item">
+          <a  class="nav-link" routerLink="/user-list">{{ "navbar.users" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.SysAdmin">
+        <div class="nav-item">
+          <a class="nav-link" routerLink="/cases/admin">{{ "navbar.cases" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.Colleague">
+        <div class="nav-item">
+          <a class="nav-link" routerLink="/pdf-list">{{ "navbar.pdfs" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.Colleague">
+        <div class="nav-item">
+          <a  class="nav-link" routerLink="/cases">{{ "navbar.seeAllCases" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.Passenger">
+        <div  class="nav-item">
+          <a class="nav-link" routerLink="/cases">{{ "navbar.seePastCases" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.Nobody">
+        <div class="nav-item">
+          <a  class="nav-link" routerLink="/login">{{ "navbar.login" | translate }}</a>
+        </div>
+      </li>
+      <li *ngIf="loggedInRole === RolesEnum.Passenger || loggedInRole === RolesEnum.Colleague || loggedInRole === RolesEnum.SysAdmin">
+        <div class="nav-item">
+          <a class="nav-link" (click)="logOut()">{{ "navbar.logout" | translate }}</a>
+        </div>
+      </li>
+      <li class="nav-item d-flex align-items-center">
+        <app-i18n></app-i18n>
+      </li>
+    </ul>
+  </div>
+</nav>

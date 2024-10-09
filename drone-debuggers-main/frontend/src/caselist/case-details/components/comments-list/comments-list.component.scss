@@ -1,0 +1,24 @@
+.comment-bubble {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: #e9ecef;
+  margin-bottom: 10px;
+}
+
+.comment-bubble p {
+  margin: 0;
+}
+
+.comment-list li:last-child {
+  border-bottom: none;
+}
+
+.comment-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.comment-list {
+  list-style: none;
+  padding: 0;
+}

@@ -1,0 +1,53 @@
+<body>
+<div class="form-container">
+  <h1>{{ "passwordChangeForm.CHANGE_PASSWORD" | translate }}</h1>
+  <form [formGroup]="passwordChangeForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <app-input
+        id="password"
+        type="password"
+        placeholder='{{ "passwordChangeForm.ENTER_NEW_PASSWORD" | translate }}'
+        formControlName="password"
+        [required]="true"
+      ></app-input>
+      <small *ngIf="password?.invalid && (password?.dirty)">
+          <span *ngIf="password?.errors?.['required']">
+            {{ 'passwordChangeForm.REQUIRED_PASSWORD_WARNING' | translate }}
+          </span>
+        <span *ngIf="password?.errors?.['minlength']">
+            {{ 'passwordChangeForm.MIN_LENGTH_PASSWORD_WARNING' | translate }}
+          </span>
+      </small>
+    </div>
+
+    <div class="form-group">
+      <app-input
+        id="passwordCheck"
+        type="password"
+        placeholder='{{ "passwordChangeForm.ENTER_PASSWORD_CHECK" | translate }}'
+        formControlName="passwordCheck"
+        [required]="true"
+      ></app-input>
+      <small *ngIf="passwordCheck?.invalid && (passwordCheck?.dirty)">
+          <span *ngIf="passwordCheck?.errors?.['required']">
+            {{ 'passwordChangeForm.REQUIRED_PASSWORD_CHECK_WARNING' | translate }}
+          </span>
+          <span *ngIf="passwordCheck?.errors?.['mismatch']">
+            {{ 'passwordChangeForm.PASSWORDS_DO_NOT_MATCH' | translate }}
+          </span>
+      </small>
+    </div>
+
+    <div class="container-button">
+      <button
+        class="submit-button"
+        pButton
+        pRipple
+        type="submit"
+        label='{{ "passwordChangeForm.SUBMIT" | translate }}'
+        [disabled]="passwordChangeForm.invalid"
+      ></button>
+    </div>
+  </form>
+</div>
+</body>

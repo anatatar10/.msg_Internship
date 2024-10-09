@@ -1,0 +1,122 @@
+<body>
+<div class="container">
+  <header>
+    <h1></h1>
+  </header>
+
+  <section class="section reservation-form">
+    <h2>{{ 'reservation-form.reservationDetails' | translate }}</h2>
+
+    <form [formGroup]="reservationForm" (ngSubmit)="onSubmit()">
+
+      <!-- Reservation Number Field -->
+      <div class="form-group">
+        <label for="reservationNumber">{{ 'reservation-form.enterReservationNumber' | translate }}</label>
+        <input pInputText class="input reservation-number-input"
+               id="reservationNumber"
+               placeholder="Ex: AA1111"
+               formControlName="reservationNumber"
+               [required]="true"
+        >
+        <small *ngIf="reservationNumber?.invalid &&
+                        (reservationNumber?.dirty || reservationForm.get('reservationNumber')?.touched)">
+          <span *ngIf="reservationNumber?.errors?.['required']">
+            {{ 'reservation-form.reservationNumberRequired' | translate }}
+          </span>
+          <span *ngIf="reservationNumber?.errors?.['pattern']">
+            {{ 'reservation-form.reservationPatternInvalid' | translate }}
+          </span>
+        </small>
+      </div>
+
+      <!-- Departing Airport Field -->
+      <div class="form-group">
+        <label for="departingAirport">{{ 'reservation-form.enterDepartingAirport' | translate }}</label>
+        <p-autoComplete
+          id="departingAirport"
+          placeholder="{{ 'reservation-form.enterDepartingAirport_1' | translate }}"
+          formControlName="departingAirport"
+          [suggestions]="filteredAirports"
+          (completeMethod)="searchAirports($event.query)"
+          [optionLabel]="'airportName'"
+          [required]="true"
+        ></p-autoComplete>
+        <small *ngIf="departingAirport?.invalid &&
+                        (departingAirport?.dirty || reservationForm.get('departingAirport')?.touched)">
+          <span *ngIf="departingAirport?.errors?.['required']">
+            {{ 'reservation-form.departingAirportRequired' | translate }}
+          </span>
+          <span *ngIf="departingAirport?.errors?.['invalidAirport']">
+            {{ 'reservation-form.invalidDepartingAirport' | translate }}
+          </span>
+        </small>
+      </div>
+
+      <!-- Arriving Airport Field -->
+      <div class="form-group">
+        <label for="arrivingAirport">{{ 'reservation-form.enterArrivingAirport' | translate }}</label>
+        <p-autoComplete
+          id="arrivingAirport"
+          placeholder="{{ 'reservation-form.enterArrivingAirport_1' | translate }}"
+          formControlName="arrivingAirport"
+          [suggestions]="filteredAirports"
+          (completeMethod)="searchAirports($event.query)"
+          [optionLabel]="'airportName'"
+          [required]="true"
+        ></p-autoComplete>
+        <small *ngIf="arrivingAirport?.invalid &&
+                        (arrivingAirport?.dirty || reservationForm.get('arrivingAirport')?.touched)">
+          <span *ngIf="arrivingAirport?.errors?.['required']">
+            {{ 'reservation-form.arrivingAirportRequired' | translate }}
+          </span>
+          <span *ngIf="arrivingAirport?.errors?.['invalidAirport']">
+            {{ 'reservation-form.invalidArrivingAirport' | translate }}
+          </span>
+        </small>
+      </div>
+
+      <!-- Stops Array -->
+      <div class="form-group-stop">
+        <div class="stops-section" formArrayName="stops">
+          <div *ngFor="let stop of stops.controls; let i = index" [formGroupName]="i" class="form-group">
+            <div class="input-wrapper">
+              <label for="stop{{i}}">{{ 'reservation-form.enterStop' | translate }} {{i + 1}}</label>
+              <p-autoComplete
+                id="stop{{i}}"
+                placeholder="{{ 'reservation-form.enterStop' | translate }} {{i + 1}}"
+                formControlName="stop"
+                [suggestions]="filteredAirports"
+                (completeMethod)="searchAirports($event.query)"
+                [optionLabel]="'airportName'"
+                [required]="false"
+              ></p-autoComplete>
+              <span class="remove-icon" (click)="removeStop(i)" title="{{ 'reservation-form.remove-layover' | translate }}">×</span>
+            </div>
+          </div>
+          <div *ngIf="reservationForm.errors?.['nonUniqueAirports']">
+            <small>
+              {{ 'reservation-form.duplicateAirports' | translate }}
+            </small>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Add Stop Button -->
+      <div class="button-container">
+        <button pButton class="button transparent-button" type="button" (click)="addStop()"
+                [disabled]="stops.length > 2">
+          {{ 'reservation-form.add-layover' | translate }}
+        </button>
+      </div>
+
+
+      <!-- Submit Button -->
+      <div class="button-container">
+        <button class="submit-button" pButton type="submit" label="{{ 'reservation-form.submit' | translate }}"
+                [disabled]="reservationForm.invalid"></button>
+      </div>
+    </form>
+  </section>
+</div>
+</body>

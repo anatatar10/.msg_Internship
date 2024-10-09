@@ -1,0 +1,26 @@
+<app-top-bar></app-top-bar>
+<p-toast></p-toast>
+<div class="page-layout">
+  <div class="label-and-buttons-container">
+    <label class="text-label">
+      {{ "landingPage.motivation" | translate }}
+    </label>
+    <div class="button-container">
+      <button class="go-to-app-button" (click)="goToCreateCase()">
+        {{ "landingPage.createCaseButton" | translate }}
+      </button>
+    </div>
+    <label class="or-label">
+      {{ "landingPage.or" | translate }}
+    </label>
+    <div class="button-container">
+      <button class="go-to-app-button" (click)="goToLogIn()">
+        {{ "landingPage.loginButton" | translate }}
+      </button>
+    </div>
+  </div>
+  <div class="gif-container">
+    <img ngSrc="assets/background/plane-flying.gif" alt="GIF" height="480" width="640">
+  </div>
+</div>
+

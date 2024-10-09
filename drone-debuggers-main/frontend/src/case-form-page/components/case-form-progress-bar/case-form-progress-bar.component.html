@@ -1,0 +1,9 @@
+<div class="progress-bar">
+  <div *ngFor="let checkpoint of checkpoints; index as i"
+       class="progress-step"
+       [class.active]="checkpoint.isActive"
+       [class.completed]="checkpoint.completed">
+    <div class="step-number">{{ i + 1 }}</div>
+    <div class="step-title">{{ checkpoint.title }}</div>
+  </div>
+</div>

@@ -1,0 +1,156 @@
+<p-toast></p-toast>
+<body>
+<div class="form-container">
+  <h1>{{ 'passenger-form.passengerDetails' | translate }}</h1>
+  <form [formGroup]="caseForm" (ngSubmit)="onSubmit()">
+    <div class="form-content">
+      <!-- Left Column: Input Text Fields -->
+      <div class="form-column">
+        <div class="form-group">
+          <label for="dateOfBirth">{{ 'passenger-form.enterDateOfBirth' | translate }}</label>
+          <app-input
+            [type]="'date'"
+            id="dateOfBirth"
+            placeholder="{{ 'passenger-form.enterDateOfBirth' | translate }}"
+            formControlName="dateOfBirth"
+            [required]="true"
+          ></app-input>
+          <small *ngIf="caseForm.get('dateOfBirth')?.invalid && (caseForm.get('dateOfBirth')?.dirty || caseForm.get('dateOfBirth')?.touched)">
+            <span *ngIf="caseForm.get('dateOfBirth')?.errors?.['required']">{{ 'passenger-form.dateOfBirthRequired' | translate }}</span>
+            <span *ngIf="caseForm.get('dateOfBirth')?.errors?.['futureDate']">{{ 'passenger-form.dateOfBirthFuture' | translate }}</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="phone">{{ 'passenger-form.enterPhone' | translate }}</label>
+          <app-input
+            id="phone"
+            placeholder="{{ 'passenger-form.enterPhone' | translate }}"
+            formControlName="phone"
+            [required]="true"
+          ></app-input>
+          <small *ngIf="caseForm.get('phone')?.invalid && (caseForm.get('phone')?.dirty || caseForm.get('phone')?.touched)">
+            <span *ngIf="caseForm.get('phone')?.errors?.['required']">{{ 'passenger-form.phoneRequired' | translate }}</span>
+            <span *ngIf="caseForm.get('phone')?.errors?.['pattern']">{{ 'passenger-form.phonePattern' | translate }}</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="address">{{ 'passenger-form.enterAddress' | translate }}</label>
+          <app-input
+            id="address"
+            placeholder="{{ 'passenger-form.enterAddress' | translate }}"
+            formControlName="address"
+            [required]="true"
+          ></app-input>
+          <small *ngIf="caseForm.get('address')?.invalid && (caseForm.get('address')?.dirty || caseForm.get('address')?.touched)">
+            <span *ngIf="caseForm.get('address')?.errors?.['required']">{{ 'passenger-form.addressRequired' | translate }}</span>
+            <span *ngIf="caseForm.get('address')?.errors?.['minlength']">{{ 'passenger-form.addressMinLength' | translate: {minLength:MinLength} }}</span>
+            <span *ngIf="caseForm.get('address')?.errors?.['maxlength']">{{ 'passenger-form.addressMaxLength' | translate: {maxLength:MaxLength} }}</span>
+          </small>
+        </div>
+        <div class="form-group">
+          <label for="postalCode">{{ 'passenger-form.enterPostalCode' | translate }}</label>
+          <app-input
+            id="postalCode"
+            placeholder="{{ 'passenger-form.enterPostalCode' | translate }}"
+            formControlName="postalCode"
+            [required]="true"
+          ></app-input>
+          <small *ngIf="caseForm.get('postalCode')?.invalid && (caseForm.get('postalCode')?.dirty || caseForm.get('postalCode')?.touched)">
+            <span *ngIf="caseForm.get('postalCode')?.errors?.['required']">{{ 'passenger-form.postalCodeRequired' | translate }}</span>
+            <span *ngIf="caseForm.get('postalCode')?.errors?.['pattern']">{{ 'passenger-form.postalCodePattern' | translate }}</span>
+          </small>
+        </div>
+      </div>
+
+      <!-- Right Column: Document Uploads -->
+      <div class="form-column">
+        <div class="form-group file-upload-group">
+          <label for="boardingPass">{{ 'passenger-form.uploadBoardingPass' | translate }}</label>
+          <p-fileUpload
+            id="boardingPass"
+            name="boardingPass"
+            accept="application/pdf,image/*"
+            [customUpload]="true"
+            [auto]="false"
+            chooseLabel="{{ 'passenger-form.chooseBoardingPass' | translate }}"
+            uploadLabel="{{ 'passenger-form.uploadBoardingPass' | translate }}"
+            cancelLabel="{{ 'passenger-form.cancel' | translate }}"
+            (onSelect)="onFileSelect($event, 'Boarding Pass')"
+            (onRemove)="onFileRemove('Boarding Pass')"
+            [showUploadButton]="false"
+            [showCancelButton]="false">
+          </p-fileUpload>
+          <small *ngIf="caseForm.get('boardingPass')?.invalid && (caseForm.get('boardingPass')?.dirty || caseForm.get('boardingPass')?.touched)">
+            <span *ngIf="caseForm.get('boardingPass')?.errors?.['required']">{{ 'passenger-form.boardingPassRequired' | translate }}</span>
+            <span
+              *ngIf="caseForm.get('boardingPass')?.errors?.['invalidType']">{{ 'passenger-form.boardingPassInvalidType' | translate }}</span>
+            <span
+              *ngIf="caseForm.get('boardingPass')?.errors?.['fileTooLarge']">{{ 'passenger-form.boardingPassFileTooLarge' | translate }}</span>
+          </small>
+        </div>
+        <div class="form-group file-upload-group">
+          <label for="idPassport">{{ 'passenger-form.uploadIdPassport' | translate }}</label>
+          <p-fileUpload
+            id="idPassport"
+            name="idPassport"
+            accept="application/pdf,image/*"
+            [customUpload]="true"
+            [auto]="false"
+            chooseLabel="{{ 'passenger-form.chooseIdPassport' | translate }}"
+            uploadLabel="{{ 'passenger-form.uploadIdPassport' | translate }}"
+            cancelLabel="{{ 'passenger-form.cancel' | translate }}"
+            (onSelect)="onFileSelect($event, 'IdPassport')"
+            (onRemove)="onFileRemove('IdPassport')"
+            [showUploadButton]="false"
+            [showCancelButton]="false">
+          </p-fileUpload>
+          <small *ngIf="caseForm.get('idPassport')?.invalid && (caseForm.get('idPassport')?.dirty || caseForm.get('idPassport')?.touched)">
+            <span *ngIf="caseForm.get('idPassport')?.errors?.['required']">{{ 'passenger-form.idPassportRequired' | translate }}</span>
+            <span
+              *ngIf="caseForm.get('idPassport')?.errors?.['invalidType']">{{ 'passenger-form.idPassportInvalidType' | translate }}</span>
+            <span
+              *ngIf="caseForm.get('idPassport')?.errors?.['fileTooLarge']">{{ 'passenger-form.idPassportFileTooLarge' | translate }}</span>
+          </small>
+        </div>
+      </div>
+    </div>
+
+    <!-- Terms and GDPR Container -->
+    <div class="terms-gdpr-container">
+      <div class="form-group checkbox-label-container">
+        <p-checkbox id="gdprConsent" inputId="gdprConsent" formControlName="gdprConsent" [binary]="true"></p-checkbox>
+        <label for="gdprConsent">
+          {{ 'passenger-form.gdprConsent' | translate }}
+          <a [href]="gdprFileUrl" target="_blank"> {{ 'passenger-form.gdprLink' | translate }}
+          </a>
+        </label>
+        <div *ngIf="gdprConsent?.invalid && caseForm.get('gdprConsent')?.touched">
+          <small *ngIf="gdprConsent?.errors?.['required']">{{ 'user-details.gdprConsentRequired' | translate }}</small>
+        </div>
+      </div>
+
+      <div class="form-group checkbox-label-container">
+        <p-checkbox id="termsAndConditions" inputId="termsAndConditions" formControlName="termsAndConditions" [binary]="true"></p-checkbox>
+        <label for="termsAndConditions">
+          {{ 'passenger-form.termsAndConditions' | translate }}
+          <a [href]="termsFileUrl" target="_blank">{{ 'passenger-form.termsLink' | translate }}</a>
+        </label>
+        <div *ngIf="termsAndConditions?.invalid && caseForm.get('termsAndConditions')?.touched">
+          <small
+            *ngIf="termsAndConditions?.errors?.['required']">{{ 'user-details.termsAndConditionsRequired' | translate }}</small>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button class="submit-button" pButton pRipple type="submit" label="{{ 'passenger-form.submit' | translate }}"
+              [disabled]="caseForm.invalid"></button>
+    </div>
+  </form>
+</div>
+</body>

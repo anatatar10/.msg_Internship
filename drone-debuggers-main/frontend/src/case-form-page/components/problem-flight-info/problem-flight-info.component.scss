@@ -1,0 +1,181 @@
+html, body {
+  height: 100%; /* Ensure the body and html take up the full height */
+  margin: 0; /* Remove any default margin */
+  background-color: #3A607E; /* Set your desired background color */
+  font-family: Arial, serif; /* Optional: Set a default font for the page */
+  display: flex; /* Use flexbox to make the body a flex container */
+  flex-direction: column; /* Arrange children in a column */
+}
+
+small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 15px;
+}
+
+.form-container {
+  max-width: 900px;
+  margin: 50px auto 210px; /* Add margin-top to create space from the top */
+  padding: 20px;
+  background-color: #1A3547;
+  color: #A6EB55;
+  border-radius: 8px;
+  border: 1px solid #A6EB55;
+  box-shadow: 0 2px 4px #A6EB55;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--surface);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+button.selected {
+  background-color: var(--secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #8ebf42;
+  box-shadow: 0 0 8px 0 #8ebf42;
+}
+
+.input::placeholder {
+  color: #aaaaaa;
+}
+
+.input:hover {
+  background-color: #f0f8ff;
+}
+
+i {
+  position: absolute;
+  right: 15px;
+  color: #aaaaaa;
+}
+
+/* Adjust icon color on focus */
+.input:focus + i {
+  color: #8ebf42;
+}
+
+.problem-flight {
+  //width: 60%; /* Make the component a bit less wide */
+  max-width: 300px; /* Ensure it doesn't get too wide on larger screens */
+  padding: 10px 15px; /* Adjust padding to reduce height */
+  background-color: #2e3b4e; /* Adjust background color */
+  border-radius: 8px; /* Rounded corners */
+  border: 1px solid #A6EB55; /* Border color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Optional: shadow for depth */
+  margin-bottom: 15px; /* Space between multiple problem flight components */
+  color: #A6EB55; /* Text color inside the component */
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Center content vertically */
+  justify-content: center; /* Center content horizontally */
+  transition: background-color 0.3s, border-color 0.3s; /* Smooth transitions for selected state */
+}
+
+.problem-flight.selected {
+  background-color: var(--surface); /* Darker background for selected state */
+  border-color: #A6EB55; /* Keep border color consistent */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4); /* Slightly darker shadow for emphasis */
+}
+
+.flight-row {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Ensure it takes up full width */
+}
+
+.airport-info {
+  display: flex; /* Use flexbox to align items horizontally */
+  align-items: center; /* Center items vertically */
+  width: 100%; /* Ensure it takes up full width */
+  min-width: 150px;
+}
+
+.airport-code {
+  flex: 1; /* Allow each code to take up equal space */
+  font-size: 16px; /* Adjust font size */
+  text-align: center; /* Center text horizontally */
+  padding: 5px 10px; /* Reduce padding to make component less tall */
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  color: #A6EB55; /* Text color */
+  position: relative; /* Position relative for tooltip */
+}
+
+.arrow {
+  font-size: 20px; /* Adjust arrow size */
+  color: #A6EB55; /* Arrow color */
+  margin: 0 5px; /* Add space around the arrow */
+}
+
+/* Tooltip styles */
+.airport-code::before {
+  content: attr(title); /* Show the full name in a tooltip */
+  position: absolute;
+  left: 0;
+  top: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 3px;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s;
+  z-index: 10;
+}
+
+.airport-code:hover::before {
+  visibility: hidden;
+  opacity: 0;
+}

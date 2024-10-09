@@ -1,0 +1,11 @@
+<!-- Flight Details Section -->
+<section class="section flight-details" *ngIf="reservation">
+  <h2>Reservation Flight Details</h2>
+  <div class="flight-card">
+    <div class="flight-info">
+      <p><strong>Reservation Number:</strong> {{ reservation?.reservationNumber }}</p>
+      <p><strong>Departing Airport:</strong> {{ reservation?.departingAirport?.airportName }} ({{ reservation?.departingAirport?.airportCode }})</p>
+      <p><strong>Destination Airport:</strong> {{ reservation?.destinationAirport?.airportName }} ({{ reservation?.destinationAirport?.airportCode }})</p>
+    </div>
+  </div>
+</section>

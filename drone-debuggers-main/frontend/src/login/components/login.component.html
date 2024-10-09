@@ -1,0 +1,35 @@
+<body>
+<div class="form-container">
+  <h1>{{ "loginForm.LOGIN" | translate }}</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <app-input
+        type = "email"
+        id="email"
+        placeholder='{{ "loginForm.ENTER_EMAIL" | translate }}'
+        formControlName="username"
+        [required]="true"
+      ></app-input>
+      <small *ngIf="username?.invalid && (username?.dirty)">
+        <span *ngIf="username?.errors?.['required']">{{ 'loginForm.REQUIRED_EMAIL_WARNING' | translate }}</span>
+        <span *ngIf="username?.errors?.['pattern']">{{ 'loginForm.INVALID_EMAIL_WARNING' | translate }}</span>
+      </small>
+    </div>
+    <div class="form-group">
+      <app-input
+        id="password"
+        type = "password"
+        placeholder='{{ "loginForm.ENTER_PASSWORD" | translate }}'
+        formControlName="password"
+        [required]="true"
+      ></app-input>
+      <small *ngIf="password?.invalid && (password?.dirty)">
+      </small>
+    </div>
+    <div class="container-button">
+      <button class="submit-button" pButton pRipple type="submit" label='{{ "loginForm.SUBMIT" | translate }}' [disabled]="loginForm.invalid"></button>
+    </div>
+  </form>
+</div>
+</body>

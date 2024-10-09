@@ -1,0 +1,180 @@
+/* General Container Styling */
+.section.case-details {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.p-dropdown {
+  width: 100%; /* Full width for the dropdown */
+  font-family: Arial, sans-serif;
+  font-size: 16px; /* Increase font size */
+}
+
+.p-dropdown-label {
+  padding: 10px 14px; /* Increase padding for better visibility */
+  font-size: 16px;    /* Increase font size */
+  color: #333;
+  text-overflow: ellipsis; /* Add ellipsis for overflow text */
+}
+
+.p-dropdown-panel {
+  max-height: 250px; /* Limit dropdown panel height */
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  z-index: 1000; /* Ensure dropdown panel appears above other elements */
+}
+
+.p-dropdown-item {
+  padding: 10px 14px; /* Increase padding for better visibility */
+  font-size: 16px;    /* Increase font size */
+  color: #333;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.p-dropdown-item:hover {
+  background-color: #eaeaea;
+  color: #000;
+}
+
+/* Dropdown Filter Styling */
+.p-dropdown-filter {
+  margin-bottom: 10px;
+  padding: 10px 14px;
+  font-size: 16px; /* Increase font size for the filter */
+  width: calc(100% - 28px); /* Adjust width for padding */
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+}
+
+.p-dropdown-filter:focus {
+  outline: none;
+  border-color: #666;
+}
+
+.p-dropdown-filter-container .p-inputtext {
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  padding: 8px 14px;
+  font-size: 16px; /* Increase font size for the filter input */
+  width: calc(100% - 34px); /* Adjust for search icon */
+  box-sizing: border-box;
+}
+
+.p-dropdown-filter-icon {
+  right: 10px;
+  top: 12px;
+  color: #666;
+}
+
+/* Button Styling */
+.p-button {
+  padding: 10px 20px; /* Increase button padding */
+  font-size: 16px;    /* Increase font size */
+}
+
+/* Default button styles (light blue) */
+.p-button-eligible,
+.p-button-not-eligible {
+  width: 120px; /* Set a fixed width for consistency */
+  height: 40px; /* Set a fixed height */
+  background-color: #608ba6; /* Light blue */
+  color: white;
+  margin-right: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+/* Dark blue when selected */
+.p-button-eligible.selected,
+.p-button-not-eligible.selected {
+  background-color: #1A3547;
+}
+
+/* Custom Styles for the PrimeNG Confirmation Dialog */
+::ng-deep .custom-confirm-dialog .p-confirm-dialog {
+  background-color: #ffffff; /* White background */
+  border-radius: 15px; /* Rounded corners */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 25px; /* Increase padding for visibility */
+}
+
+::ng-deep .custom-confirm-dialog .p-dialog-title {
+  font-size: 20px; /* Larger font size for the title */
+  font-weight: 700; /* Bold font */
+}
+
+::ng-deep .custom-confirm-dialog .p-confirm-dialog-message {
+  font-size: 16px; /* Medium gray for text */
+  color: #555555;
+}
+
+::ng-deep .custom-confirm-dialog .p-button-text {
+  font-size: 16px; /* Increase font size for buttons */
+}
+
+.card-header {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  text-align: center; /* Center the text */
+}
+
+.card-header h2 {
+  margin: 0; /* Remove default margin */
+  font-size: 24px; /* Adjust font size if needed */
+}
+
+
+.th {
+  background-color: #007bff; /* Bootstrap primary blue color or use any blue shade */
+  color: white;
+}
+
+.p-button-eligible:disabled,
+.p-button-not-eligible:disabled {
+  background-color: grey; /* Red color */
+  color: white; /* White text */
+  cursor: not-allowed; /* Show a not-allowed cursor */
+  box-shadow: none; /* Remove any shadow */
+}
+
+.case-list-title{
+  display: flex;
+  justify-content: center;
+}
+
+.cases-button {
+  // Align button with the table
+  margin: 15px;
+  padding: 10px 20px;
+  background-color: var(--secondary); /* Green background */
+  color: white; /* White text */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-flex; /* Center the text and icon */
+  align-items: center; /* Align icon vertically */
+  white-space: nowrap;
+  max-width: 22vh;
+}
+
+.cases-button:hover {
+  background-color: #1caa1c;
+  cursor: pointer;
+}
+
+.p-button-selected {
+  background-color: #1caa1c; // Green background for selected state
+  color: #fff;
+}

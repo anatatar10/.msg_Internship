@@ -1,0 +1,280 @@
+/* General Styles */
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding-top: 35px;
+  background-color: white;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center;     /* Center the content vertically if needed */
+  flex-direction: column;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+.container header {
+  padding-bottom: 15px;
+  margin-bottom: 30px;
+  width: 100%; /* Ensure the header spans the full width of the container */
+}
+
+/* Section Styles */
+.section {
+  width: 100%; /* Use the full width of the container */
+  max-width: 600px; /* Restrict the maximum width */
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+}
+
+
+
+.section h2 {
+  text-align: center; /* Center the section heading */
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+/* Form Group Styles */
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form-group label {
+  color: var(--primary);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  text-align: center; /* Center the label text */
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.remove-icon {
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+/* Button Styles */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button */
+  margin-top: 20px;
+}
+
+.button {
+  padding: 12px 19px;
+  border: none;
+  color: rgb(16, 52, 170);
+  cursor: pointer;
+  background-color: rgb(190, 219, 253);
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.5s;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+.button:hover {
+  border-shadow: 0 0 8px 0 #8ebf42;
+}
+
+/* General input styling */
+.input, .reservation-number-input {
+  min-width: 100px;
+  width: 45%;
+  height: 50%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 12px 12px 12px 15px;
+  border-radius: 12px;
+  border: 2px solid #e4e4e4;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-sizing: border-box; /* Ensures padding doesn't affect the width */
+}
+
+/* Focus state for input fields - changes border to green */
+.input:focus, .reservation-number-input:focus, p-autoComplete .ui-inputtext:focus {
+  border-color: #8ebf42;
+}
+
+/* Additional styles for p-autoComplete input fields */
+p-autoComplete .ui-inputtext {
+  min-width: 250px;
+  width: 100%;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  padding: 12px 12px 12px 15px;
+  border-radius: 12px;
+  border: 2px solid #e4e4e4;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Style for the placeholder text */
+.input::placeholder,
+.reservation-number-input::placeholder {
+  color: #aeaeae; /* Change the placeholder text color to red */
+  opacity: 1; /* Ensure the opacity is at full strength */
+}
+
+/* Focus state for input fields with placeholder */
+.input:focus::placeholder,
+.reservation-number-input:focus::placeholder {
+  color: #aeaeae; /* Keep the placeholder red when the input is focused */
+}
+
+/* Style for error messages */
+.form-group small {
+  color: red; /* Change the error message text color to red */
+  font-weight: bold; /* Optional: Make the error text bold */
+}
+
+/* Specific styles for error spans within the form group */
+.form-group small span {
+  color: red; /* Ensures the error message text is red */
+  font-weight: bold; /* Optional: Makes the error text bold */
+}
+
+/* Transparent button style */
+.transparent-button {
+  background-color: transparent; /* Make the button background transparent */
+  color: var(--primary); /* Set the text color to match the border */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 7px; /* Add border radius for rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition on hover */
+  font-size: 14px; /* Set font size */
+  font-weight: bold; /* Make the text bold */
+}
+
+/* Hover effect for transparent button */
+.transparent-button:hover {
+  background-color:var(--primary); /* Change background color on hover */
+  color: white; /* Change text color on hover */
+}
+
+/* Ensure the stops section aligns with the rest of the form */
+.stops-section .form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Ensure full width of the container */
+}
+
+.stops-section .input-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Aligns the remove icon to the right */
+  width: 100%; /* Make the input take up the full width */
+  max-width: 400px; /* Adjust based on your design */
+  margin-top: 10px;
+}
+
+.stops-section .input-wrapper label {
+  width: 100%; /* Align label width with input */
+  max-width: 400px; /* Keep consistent with other inputs */
+  margin-bottom: 5px;
+  color: rebeccapurple; /* Adjust to match your form's color scheme */
+  font-weight: bold;
+}
+
+.stops-section p-autoComplete {
+  flex-grow: 1; /* Make the autocomplete input grow to fill the available space */
+  margin-right: 10px; /* Space between input and remove icon */
+  max-width: 400px; /* Adjust based on your design */
+}
+
+.stops-section .remove-icon {
+  cursor: pointer;
+  color: #dc3545;
+  font-size: 20px;
+  margin-left: 10px;
+}
+
+.form-group-stop {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 600px; /* Adjust based on your design */
+}
+
+/* Base style for the button */
+.submit-button {
+  padding: 12px 19px;
+  border: none;
+  color: white; /* Default text color */
+  cursor: pointer;
+  background-color: #8ebf42; /* Default background color */
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+/* Hover effect for enabled button */
+.submit-button:hover {
+  background-color: #76a933; /* Slightly darker shade on hover */
+}
+
+/* Style for the disabled state */
+.submit-button:disabled {
+  background-color: grey; /* Grey background when disabled */
+  cursor: not-allowed; /* Show not-allowed cursor when disabled */
+  color: #cccccc; /* Lighter grey text color */
+  box-shadow: none; /* Remove the box shadow */
+}
+
+
+small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  justify-content: center; /* Centers content horizontally */
+  align-items: center;     /* Centers content vertically */
+  text-align: center !important;
+  font-size: 15px;
+  font-weight: bold !important; /* Make the error messages bold */
+}

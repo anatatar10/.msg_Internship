@@ -1,0 +1,17 @@
+
+
+.gif-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
+  overflow: hidden; /* Optional margin to create space between the gif and the buttons */
+}
+
+.center-paragraph {
+  font-size: 75px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}

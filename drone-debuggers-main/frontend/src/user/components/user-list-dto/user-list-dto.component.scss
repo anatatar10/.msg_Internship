@@ -1,0 +1,218 @@
+.section.user-details {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.bin-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  border-radius: 15px;
+  background-color: rgb(255, 95, 95);
+  cursor: pointer;
+  border: 3px solid rgb(255, 201, 201);
+  transition-duration: 0.3s;
+}
+.bin-bottom {
+  width: 15px;
+}
+.bin-top {
+  width: 17px;
+  transform-origin: right;
+  transition-duration: 0.3s;
+}
+.bin-button:hover .bin-top {
+  transform: rotate(45deg);
+}
+.bin-button:hover {
+  background-color: rgb(255, 0, 0);
+}
+.bin-button:active {
+  transform: scale(0.9);
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center;     /* Centers the buttons vertically */
+  gap: 10px;               /* Adds space between the buttons */
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Centers the buttons horizontally */
+  align-items: center;     /* Centers the buttons vertically */
+  gap: 10px;               /* Adds space between the buttons */
+}
+
+.edit-button,
+.bin-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  background-color: #007BFF; /* Blue background color for edit */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.edit-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.bin-button {
+  background-color: #f55549; /* Red background color for delete */
+}
+
+.bin-button:hover {
+  background-color: #d32f2f; /* Darker red on hover */
+}
+
+.pencil-icon,
+.bin-top,
+.bin-bottom {
+  display: block;
+}
+
+
+.edit-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 10px;
+  border: none;
+  background-color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.123);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.edit-btn::before {
+  content: "";
+  width: 200%;
+  height: 200%;
+  background-color: #1caa1c;
+  position: absolute;
+  z-index: 1;
+  transform: scale(0);
+  transition: all 0.3s;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.edit-btn:hover::before {
+  transform: scale(1);
+}
+.edit-btn:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.336);
+}
+
+.edit-btn svg {
+  height: 17px;
+  fill: white;
+  z-index: 3;
+  transition: all 0.2s;
+  transform-origin: bottom;
+}
+.edit-btn:hover svg {
+  transform: rotate(-15deg) translateX(5px);
+}
+.edit-btn::after {
+  content: "";
+  width: 25px;
+  height: 1.5px;
+  position: absolute;
+  bottom: 19px;
+  left: -5px;
+  background-color: white;
+  border-radius: 2px;
+  z-index: 2;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease-out;
+}
+.edit-btn:hover::after {
+  transform: scaleX(1);
+  left: 0;
+  transform-origin: right;
+}
+
+.user-list-header {
+  display: flex;
+  justify-content: center; /* Center the title */
+  align-items: center;
+  position: relative; /* Allows absolute positioning of the button */
+  padding: 10px 0;
+}
+
+.user-list-header h2 {
+  margin: 0;
+  text-align: center;
+}
+
+.create-user {
+  // Align button with the table
+  margin: 15px;
+  padding: 10px 20px;
+  background-color: var(--secondary); /* Green background */
+  color: white; /* White text */
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  display: inline-flex; /* Center the text and icon */
+  align-items: center; /* Align icon vertically */
+  width: auto;
+  white-space: nowrap;
+  max-width: 22vh;
+  svg {
+    margin-right: 5px; /* Space between icon and text */
+  }
+}
+
+.user-list-container .card-body {
+  padding-top: 0; /* Remove top padding to align button and table */
+  position: relative;
+}
+
+.scrollable-table {
+  overflow-x: auto;
+  margin-top: 0; /* Adjust top margin for alignment */
+}
+
+.custom-table {
+  width: 100%; /* Ensure table takes up full width */
+  border-collapse: collapse; /* Merge table borders */
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 12px; /* Padding inside table cells */
+  text-align: left; /* Align text to the left */
+}
+
+.custom-table th {
+  background-color: #f2f2f2; /* Light grey background for headers */
+  border-bottom: 2px solid #ddd; /* Border below headers */
+}
+
+.custom-table td {
+  border-bottom: 1px solid #ddd; /* Border below cells */
+}
+.create-user:hover {
+  background-color: #1caa1c;
+}
+
+

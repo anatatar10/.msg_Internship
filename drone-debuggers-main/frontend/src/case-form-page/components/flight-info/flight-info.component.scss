@@ -1,0 +1,180 @@
+html, body {
+  height: 100%; /* Ensure the body and html take up the full height */
+  margin: 0; /* Remove any default margin */
+  background-color: white; /* Set your desired background color */
+  font-family: Arial, serif; /* Optional: Set a default font for the page */
+  display: flex; /* Use flexbox to make the body a flex container */
+  flex-direction: column; /* Arrange children in a column */
+}
+
+small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold !important; /* Make the error messages bold */
+}
+
+.form-container {
+  max-width: 900px;
+  margin: 50px auto 210px; /* Add margin-top to create space from the top */
+  padding: 20px;
+  background-color: #1A3547;
+  color: #A6EB55;
+  border-radius: 8px;
+  border: 1px solid #A6EB55;
+  box-shadow: 0 2px 4px #A6EB55;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+/* Ensure labels are bold */
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold !important; /* Ensure labels are bold */
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--surface);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+button.selected {
+  background-color: var(--secondary);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #8ebf42;
+  box-shadow: 0 0 8px 0 #8ebf42;
+}
+
+.input::placeholder {
+  color: #aaaaaa;
+}
+
+.input:hover {
+  background-color: #f0f8ff;
+}
+
+i {
+  position: absolute;
+  right: 15px;
+  color: #aaaaaa;
+}
+
+/* Adjust icon color on focus */
+.input:focus + i {
+  color: #8ebf42;
+}
+
+/* Style for the row containing "From Airport" and "To Airport" */
+.flight-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Style for the arrow between the two inputs */
+.arrow {
+  font-size: 30px;
+  margin: 0 15px; /* Adjust spacing as needed */
+}
+
+.form-field {
+  text-align: center;
+}
+
+.flight-button {
+  display: inline-block; /* Ensures the button's dimensions are respected */
+  text-align: center;
+}
+
+.flight-button.disabled {
+  background-color: grey;
+}
+
+/* Center the button containers */
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  margin-top: 10px; /* Space above the buttons */
+  width: 100%; /* Full width of the parent container */
+}
+
+/* Define styles for small buttons */
+.small-button {
+  width: 50%; /* Make buttons 50% of the container width */
+  padding: 6px 12px; /* Smaller padding */
+  font-size: 16px; /* Smaller font size */
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--surface); /* Use your primary color variable */
+  color: white;
+  transition: background-color 0.3s;
+  text-align: center; /* Center text inside the button */
+  border: 0px;
+}
+
+/* Button hover effect for small buttons */
+.small-button:hover {
+  background-color: var(--secondary); /* Use your secondary color variable */
+  color: var(--text); /* Text color when hovered */
+}
+
+/* Button disabled state for small buttons */
+.small-button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.input-field[type="date"] {
+  padding-left: 10px; /* Adjust the padding as needed */
+}
+
+.form-field label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold !important; /* Make labels bold */
+}

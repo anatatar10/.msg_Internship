@@ -1,0 +1,79 @@
+.page-layout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40%;
+  margin-top: 15vh;
+}
+
+.label-and-buttons-container {
+  width: 60vh;
+  height: 37vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) */
+}
+
+.text-label {
+  color: var(--primary);
+  font-weight: bold;
+  display: block;
+  text-align: left;
+  font-size: 3.5vh;
+  margin-bottom: 4vh;
+  width: 100%; /* Ensure the label takes full width of the container */
+}
+
+.buttons-and-or-label-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: flex-start; /* Align items to the start (left) */
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column; /* Stack buttons vertically */
+  width: 100%;
+  align-items: flex-start; /* Align buttons to the start (left) */
+}
+
+.go-to-app-button {
+  width: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  padding: 10px 20px;
+  background-color: var(--primary);
+  color: #ffffff;
+  border-color: var(--primary);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: background-color 0.6s ease;
+}
+
+.go-to-app-button:hover {
+  background-color: var(--secondary);
+}
+
+.or-label {
+  color: var(--primary);
+  font-weight: bold;
+  text-align: center; /* Center text within the label */
+  padding-left: 23vh;
+  margin: 2vh 0; /* Adjust this margin to control vertical spacing */
+}
+
+.gif-container {
+  margin-left: 4vh; /* Optional margin to create space between the gif and the buttons */
+}
+
+.gif-container img {
+  width: 35vh;
+  height: 35vh;
+  overflow: hidden;
+  border-radius: 100%;
+  border: 3px solid var(--primary);
+}
+

@@ -1,0 +1,359 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+header h1 {
+  font-size: 2.5rem; /* Increase the font size */
+  font-weight: 700; /* Make the font bold */
+  text-align: center; /* Center the text horizontally */
+  margin-top: 20px; /* Add some space above the heading */
+  margin-bottom: 20px; /* Add some space below the heading */
+  color: var(--primary); /* A dark color for the text */
+}
+
+.container header {
+  border-bottom: 2px solid #ddd; /* Optional: Add a border below the heading */
+  padding-bottom: 15px; /* Optional: Add some padding to the bottom of the header */
+  margin-bottom: 30px; /* Add space below the header */
+}
+
+
+.section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.flight-card, .passenger-card, .reservation-card {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  margin-bottom: 20px;
+}
+
+.flight-info, .passenger-info, .reservation-info {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.flight-info:last-child, .passenger-info:last-child, .reservation-info:last-child {
+  margin-right: 0;
+}
+
+.document-list, .comment-list {
+  list-style: none;
+  padding: 0;
+}
+
+.document-list li, .comment-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.document-list li:last-child, .comment-list li:last-child {
+  border-bottom: none;
+}
+
+.comment-bubble {
+  padding: 15px;
+  border-radius: 10px;
+  background-color: var(--secondary);
+  margin-bottom: 10px;
+  word-wrap: break-word; /* Break long words onto the next line */
+  overflow-wrap: break-word; /* Ensures the text stays within the bounds */
+  white-space: pre-wrap; /* Preserves whitespace but wraps text */
+}
+
+.comment-bubble p {
+  margin: 0;
+  word-wrap: break-word; /* Break long words onto the next line */
+  overflow-wrap: break-word; /* Ensures the text stays within the bounds */
+  white-space: pre-wrap; /* Preserves whitespace but wraps text */
+}
+
+.connecting-flights-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.connecting-flights-table th, .connecting-flights-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.connecting-flights-table th {
+  background-color: #333;
+  color: white;
+}
+
+.connecting-flights-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.accordion {
+  margin-top: 20px;
+}
+
+.accordion-item {
+  margin-bottom: 10px;
+}
+
+.accordion-header {
+  background-color: #333;
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2em;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: #555;
+}
+
+.accordion-content {
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0 0 5px 5px;
+  display: none;
+}
+
+.accordion-content p {
+  margin: 0;
+}
+
+.accordion-header.active + .accordion-content {
+  display: block;
+}
+
+.scrollable-table {
+  max-height: 300px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+  border-radius: 8px;
+}
+
+.scrollable-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.scrollable-table th, .scrollable-table td {
+  padding: 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.scrollable-table th {
+  background-color: var(--primary);
+  color: white;
+}
+
+.scrollable-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.connecting-flights-table th, .connecting-flights-table td {
+  text-align: center; /* Center the text */
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Table row for problematic flights */
+.problematic-flight {
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+}
+
+/* Icon for problematic flights */
+.icon-warning {
+  color: #dc3545; /* Bootstrap danger color */
+  font-size: 18px;
+  vertical-align: middle;
+  margin-left: 5px;
+}
+.download-btn {
+  padding: 12px 19px;
+  border: none;
+  color: var(--secondary);
+  cursor: pointer;
+  background-color: var(--primary);
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.5s;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+.button:hover {
+  background-color: rgb(164, 206, 253);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.saveicon {
+  width: 17px;
+}
+
+.document-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  display: flex; /* Use flexbox to align items horizontally */
+  justify-content: space-between; /* Ensure there's space between the document name and the button */
+  align-items: center; /* Vertically align items in the center */
+}
+
+.document-list li:last-child {
+  border-bottom: none;
+}
+
+.saveicon {
+  width: 17px;
+}
+
+textarea {
+  width: 100%;
+  max-width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 1.5;
+  resize: vertical; /* Allow vertical resizing but prevent horizontal resizing */
+}
+
+textarea:focus {
+  outline: none;
+  border-color: #007bff; /* Highlight border when focused */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.message-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 20px;
+  position: relative; /* To position the character counter */
+}
+
+.message-container textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  background-color: aliceblue;
+  font-size: 16px;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  resize: vertical; /* Allow users to resize vertically */
+}
+
+.message-container textarea:focus {
+  outline: none;
+  border-color: #007bff; /* Blue border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.message-container .char-counter {
+  position: absolute;
+  left: 12px; /* Align to the left within the container */
+  bottom: 30px; /* Position above the button */
+  font-size: 14px;
+  color: #555; /* Slightly grey color for better visibility */
+}
+
+.message-container button {
+  padding: 12px 30px; /* Increase padding for better button width */
+  background-color: var(--primary); /* Blue background */
+  color: var(--secondary);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  align-self: flex-end; /* Align the button to the right within the container */
+  margin-top: 10px; /* Add space between textarea and button */
+}
+
+.message-container button:hover {
+  background-color: #446073; /* Darker blue on hover */
+}
+
+.message-container button:active {
+  background-color: #446073; /* Even darker blue on click */
+}
+
+.message-container button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.send-button {
+  display: inline-flex;
+  align-items: center;
+  padding: 12px 30px; /* Ensure sufficient padding for text */
+  background-color: var(--primary); /* Blue background */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.send-button svg, .send-button i {
+  margin-right: 8px; /* Spacing between icon and text */
+}
+
+.send-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+.send-button:active {
+  background-color: #004494; /* Even darker blue on click */
+}
+
+.send-button:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+

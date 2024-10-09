@@ -1,0 +1,13 @@
+<div class="input-wrapper">
+  <input
+    [type]="type"
+    [placeholder]="placeholder"
+    [value]="value"
+    (input)="handleInput($event)"
+    (focus)="focus.emit()"
+    (blur)="blur.emit()"
+    [required]="required"
+    class="input"
+  />
+  <i [ngClass]="getIconClass()"></i>
+</div>

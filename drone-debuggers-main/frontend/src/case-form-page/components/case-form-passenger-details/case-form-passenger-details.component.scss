@@ -1,0 +1,197 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  background-color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  width: 650px; /* Increase the maximum width of the form container */
+  margin: 20px auto;
+  padding: 40px; /* Increase padding for a more spacious layout */
+  background-color: white;
+  color: var(--primary);
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.form-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-column {
+  width: 48%;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  text-align: center; /* Center align the content within the form group */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  text-align: center; /* Center align the label text */
+}
+
+small {
+  color: red;
+  display: block;
+  margin-top: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+button {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  background-color: var(--surface);
+  color: white;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--secondary);
+  color: var(--text);
+}
+
+button:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input {
+  text-align: center;
+  width: 100%;
+  border-radius: 12px;
+  outline: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.input:focus {
+  border-color: #8ebf42;
+  box-shadow: 0 0 8px 0 #8ebf42;
+}
+
+.input::placeholder {
+  color: #aaaaaa;
+}
+
+.input:hover {
+  background-color: #f0f8ff;
+}
+
+i {
+  position: absolute;
+  right: 15px;
+  color: #aaaaaa;
+}
+
+.terms-gdpr-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column; /* Stack the items vertically */
+  align-items: center; /* Center align the items */
+  width: 80%; /* Reduce the width of this section */
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;  /* Smaller font size for GDPR and Terms */
+  color: #555;  /* Optional: a slightly lighter color */
+  justify-content: space-between;
+}
+
+.checkbox-container {
+  margin-top: 10px;
+  text-align: center; /* Center align the checkbox label */
+}
+
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  width: 100%; /* Ensure the container takes full width */
+  margin-top: 20px; /* Add some space above the button */
+}
+
+/* Base style for the button */
+.submit-button {
+  padding: 12px 19px;
+  border: none;
+  color: white; /* Default text color */
+  cursor: pointer;
+  background-color: #8ebf42; /* Default background color */
+  border-radius: 7px;
+  font-weight: bold;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+/* Hover effect for enabled button */
+.submit-button:hover {
+  background-color: #76a933; /* Slightly darker shade on hover */
+}
+
+/* Style for the disabled state */
+.submit-button:disabled {
+  background-color: grey; /* Grey background when disabled */
+  cursor: not-allowed; /* Show not-allowed cursor when disabled */
+  color: #cccccc; /* Lighter grey text color */
+  box-shadow: none; /* Remove the box shadow */
+}
+
+.checkbox-label-container {
+  display: flex;
+  align-items: center; /* Align the checkbox and text vertically centered */
+  gap: 8px; /* Space between the checkbox and label */
+  font-size: 16px; /* Font size for the document text */
+  font-weight: normal; /* Ensure text is not bold */
+}
+
+.checkbox-label-container label {
+  display: flex;
+  align-items: center; /* Align text and link vertically centered */
+  gap: 4px; /* Space between "I agree" text and the link */
+  font-weight: normal; /* Ensure label text is not bold */
+}
+
+.terms-gdpr-container {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the left */
+  width: 100%; /* Full width to align content */
+  font-size: 16px;  /* Font size for GDPR and Terms */
+  color: #555;
+  font-weight: normal; /* Ensure the text for GDPR and Terms is not bold */
+}

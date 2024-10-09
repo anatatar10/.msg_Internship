@@ -1,0 +1,166 @@
+<body>
+<form class="form-container" [formGroup]="disruptionForm" (ngSubmit)="onSubmit()">
+  <h1>{{ 'disruption-info.title' | translate }}</h1>
+
+  <!-- Disruption Type Dropdown -->
+  <div class="form-group">
+    <label for="disruptionType">{{ 'disruption-info.disruptionTypeLabel' | translate }}</label>
+    <p-dropdown
+      id="disruptionType"
+      formControlName="disruptionType"
+      [options]="disruptionTypes"
+      placeholder="{{ 'disruption-info.selectOption' | translate }}"
+    ></p-dropdown>
+    <small *ngIf="disruptionType?.dirty || disruptionType?.touched">
+      <span *ngIf="disruptionType?.errors?.['required']">
+        {{ 'disruption-info.disruptionTypeRequired' | translate }}
+      </span>
+    </small>
+  </div>
+
+  <!-- Cancellation Fields -->
+  <div formGroupName="cancellationInfo" *ngIf="disruptionType?.value === CancellationType.Cancellation">
+    <div class="form-group">
+      <label for="informed">{{ 'disruption-info.cancellationInformedLabel' | translate }}</label>
+      <p-dropdown
+        id="informed"
+        formControlName="informed"
+        [options]="cancellationOptions"
+        placeholder="{{ 'disruption-info.selectOption' | translate }}"
+      ></p-dropdown>
+      <small *ngIf="(cancellationInfo?.dirty || cancellationInfo?.touched)">
+        <span *ngIf="disruptionForm.errors?.['cancellationInfoRequired']">
+          {{ 'disruption-info.cancellationInfoRequired' | translate }}
+        </span>
+      </small>
+    </div>
+  </div>
+
+  <!-- Delay Fields -->
+  <div formGroupName="delayInfo" *ngIf="disruptionType?.value === CancellationType.Delay">
+    <div class="form-group">
+      <label for="delay">{{ 'disruption-info.delayLabel' | translate }}</label>
+      <p-dropdown
+        id="delay"
+        formControlName="delay"
+        [options]="delayOptions"
+        placeholder="{{ 'disruption-info.selectOption' | translate }}"
+      ></p-dropdown>
+      <small *ngIf="delayInfo?.dirty || delayInfo?.touched">
+        <span *ngIf="disruptionForm.errors?.['delayInfoRequired']">
+          {{ 'disruption-info.delayInfoRequired' | translate }}
+        </span>
+      </small>
+    </div>
+  </div>
+
+  <!-- Denied Boarding Fields -->
+  <div formGroupName="deniedBoardingInfo" *ngIf="disruptionType?.value === CancellationType.DeniedBoarding">
+    <div class="form-group">
+      <label for="voluntarily">{{ 'disruption-info.voluntarilyLabel' | translate }}</label>
+      <p-dropdown
+        id="voluntarily"
+        formControlName="voluntarily"
+        [options]="deniedBoardingOptions"
+        placeholder="{{ 'disruption-info.selectOption' | translate }}"
+      ></p-dropdown>
+      <small *ngIf="(voluntarily?.dirty || voluntarily?.touched)">
+        <span *ngIf="disruptionForm.errors?.['deniedBoardingVoluntarilyRequired']">
+          {{ 'disruption-info.voluntarilyRequired' | translate }}
+        </span>
+      </small>
+    </div>
+    <div *ngIf="voluntarilyValue === Voluntary.No">
+      <div class="form-group">
+        <label for="reason">{{ 'disruption-info.reasonLabel' | translate }}</label>
+        <p-dropdown
+          id="reason"
+          formControlName="reason"
+          [options]="denialReasons"
+          placeholder="{{ 'disruption-info.selectOption' | translate }}"
+        ></p-dropdown>
+        <small *ngIf="reason?.dirty || reason?.touched">
+          <span *ngIf="disruptionForm.errors?.['deniedBoardingInfoReasonRequired']">
+            {{ 'disruption-info.reasonRequired' | translate }}
+          </span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Motive Fields -->
+  <div *ngIf="disruptionTypeCancellationOrDelay">
+    <div class="form-group">
+      <label for="mentionedMotive">{{ 'disruption-info.mentionedMotiveLabel' | translate }}</label>
+      <p-dropdown
+        id="mentionedMotive"
+        formControlName="mentionedMotive"
+        [options]="mentionedMotiveOptions"
+        placeholder="{{ 'disruption-info.selectOption' | translate }}"
+      ></p-dropdown>
+      <small *ngIf="mentionedMotive?.dirty || mentionedMotive?.touched">
+        <span *ngIf="disruptionForm.errors?.['mentionedMotiveRequired']">
+          {{ 'disruption-info.mentionedMotiveRequired' | translate }}
+        </span>
+      </small>
+    </div>
+    <div *ngIf="mentionedMotive?.value === 'Yes'">
+      <div class="form-group">
+        <label for="motive">{{ 'disruption-info.motiveLabel' | translate }}</label>
+        <p-dropdown
+          id="motive"
+          formControlName="motive"
+          [options]="disruptionMotiveOptions"
+          placeholder="{{ 'disruption-info.selectOption' | translate }}"
+        ></p-dropdown>
+        <small *ngIf="motive?.dirty || motive?.touched">
+          <span *ngIf="disruptionForm.errors?.['motiveRequired']">
+            {{ 'disruption-info.motiveRequired' | translate }}
+          </span>
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Additional Info Field -->
+  <div *ngIf="disruptionType?.value != undefined" class="form-group">
+    <label for="additionalInfo">{{ 'disruption-info.additionalInfoLabel' | translate }}</label>
+    <textarea pInputTextarea
+              id="additionalInfo"
+              formControlName="additionalInfo"
+              autoResize="true"
+              placeholder="{{ 'disruption-info.additionalInfoPlaceholder' | translate }}"
+    ></textarea>
+    <small *ngIf="additionalInfo?.invalid &&
+                    (additionalInfo?.dirty || disruptionForm.get('additionalInfo')?.touched)">
+      <span *ngIf="additionalInfo?.errors?.['maxlength']">
+        {{ 'disruption-info.additionalInfoTooLong' | translate }}
+      </span>
+    </small>
+  </div>
+
+  <!-- Error Message for Eligibility -->
+  <small *ngIf="disruptionForm.errors && Object.keys(disruptionForm.errors).length === 1">
+    <span class="notEligible" *ngIf="disruptionForm.errors?.['notEligible']">
+      {{ 'disruption-info.notEligible' | translate }}
+    </span>
+    <div *ngIf="disruptionForm.errors?.['notEligible']">
+      <button pButton class="submit-button" type="button"
+              label="{{ 'disruption-info.checkAnotherFlight' | translate }}"
+              icon="pi pi-search"
+              routerLink="/case-form">
+      </button>
+    </div>
+  </small>
+  <div *ngIf="disruptionForm.valid" class="eligible">
+    <span>
+      {{ 'disruption-info.eligible' | translate }}  {{ possibleCompensation }}€!
+    </span>
+  </div>
+  <!-- Submit Button -->
+  <div class="form-group">
+    <button pButton class="submit-button" type="submit" label="{{ 'disruption-info.submit' | translate }}"
+            [disabled]="disruptionForm.invalid"></button>
+  </div>
+</form>
+</body>
